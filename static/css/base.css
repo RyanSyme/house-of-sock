@@ -1,14 +1,18 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Noto+Serif&display=swap'); */
+
 html {
     height: 100%;
 }
 
-/* body {
-    background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
-    background-size: cover;
-    height: calc(100vh - 164px);
-    color: #555;
-    font-family: 'Lato';
-} */
+body {
+    background-color: grey;
+    /* height: calc(100vh - 164px); */
+    font-family: 'Noto Serif', serif;
+}
+
+header {
+    background-color: yellow;
+}
 
 /* from Bulma - from code institute*/
 .icon {
@@ -23,17 +27,22 @@ html {
     width: fit-content;
 }
 
+.main-logo-link h2 {
+    font-family: 'Luckiest Guy', cursive;
+    color: purple;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
-@media (min-width: 1200px) {
+/* @media (min-width: 1200px) {
   .container {
     max-width: 80%;
   }
-}
+} */
 
 /* fixed top navbar only on medium and up */
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;
         top: 0;
@@ -45,5 +54,5 @@ html {
     .header-container {
         padding-top: 164px;
     }
-}
+} */
 
