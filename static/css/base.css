@@ -4,7 +4,7 @@ html {
 
 body {
     background-color: grey;
-    /* height: calc(100vh - 164px); */
+    margin-top: 200px;
     font-family: 'Noto Serif', serif;
 }
 
@@ -28,6 +28,16 @@ header {
 .main-logo-link h2 {
     font-family: 'Luckiest Guy', cursive;
     color: purple;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: white;
+    z-index: -1;
 }
 
 /* -------------------------------- Media Queries */
