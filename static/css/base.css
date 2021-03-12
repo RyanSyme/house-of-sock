@@ -3,13 +3,13 @@ html {
 }
 
 body {
-    background-color: grey;
-    margin-top: 170px;
+    background-color: #e9ebd2;
+    margin-top: 500px;
     font-family: 'Noto Serif', serif;
 }
 
 header {
-    background-color: yellow;
+    background-color: #fcf838;
 }
 
 /* from Bulma - from code institute*/
@@ -21,13 +21,17 @@ header {
     width: 1.5rem;
 }
 
+.main-nav-container h4 {
+    color: #700170;
+}
+
 .main-logo-link {
     width: fit-content;
 }
 
 .main-logo-link h2 {
-    font-family: 'Luckiest Guy', cursive;
-    color: purple;
+    font-family: 'Rock Salt', cursive;
+    color: #700170;
 }
 
 .overlay {
@@ -38,6 +42,11 @@ header {
     position: fixed;
     background: white;
     z-index: -1;
+}
+
+#free-delivery-banner {
+    background-color: #700170;
+    color: #fcf838;
 }
 
 /* -------------------------------- Media Queries */
