@@ -12,6 +12,10 @@ header {
     background-color: #fcf838;
 }
 
+.navbar-toggler {
+    color: #000;
+}
+
 /* from Bulma - from code institute*/
 .icon {
     align-items: center;
