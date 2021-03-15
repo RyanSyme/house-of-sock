@@ -1,37 +1,40 @@
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
-    aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-</button>
-<li class="list-inline-item dropdown">
-    <a class="nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <div class="text-center">
-            <p class="my-0"><i class="fas fa-user "></i> Account</p>
-        </div>
-    </a>
-    <div class="dropdown-menu border-0" aria-labelledby="user-options">
+<div class="col-12 ">
+    <ul class="navbar-nav nav-text-align" data-toggle="dropdown">
+        <li class="nav-item mr-3 mb-2">
+            <a href="" class="nav-link text-uppercase">Home</a>
+        </li>
+        <li class="nav-item mr-3 mb-2">
+            <a href="" class="nav-link text-uppercase">Mens Socks</a>
+        </li>
+        <li class="nav-item mr-3 mb-2">
+            <a href="" class="nav-link text-uppercase">Womens Socks</a>
+        </li>
         {% if request.user.is_authenticated %}
-            {% if request.user.is_superuser %}
-                <a href="{% url 'account_logout' %}" class="dropdown-item">Product Management</a>
-            {% endif %}
-            <a href="" class="dropdown-item">My Profile</a>
-            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-        {% else %}
-            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+        {% if request.user.is_superuser %}
+        <a href="" class="dropdown-item">Product Management</a>
         {% endif %}
-    </div>
-</li>
-<li class="list-inline-item">
-    <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" href="">
-        <div class="text-center">
-            <div><i class="fas fa-cart-plus"></i></div>
-            <p class="my-0">
-                {% if grand_total %}
-                    ${{ grand_total|floatformat:2 }}
-                {% else %}
-                    $0.00
-                {% endif %}
-            </p>
-        </div>
+        <a href="" class="dropdown-item">Profile</a>
+        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+        {% else %}
+        <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+        {% endif %}
+    </ul>
+</div>
+
+<div class="col">
+    <a href="{% url 'home' %}" class="nav-link main-logo-link">
+        <h2 class="main-logo-head my-0 pl-xl-5"><strong>HOUSE OF SOCK</strong></h2>
     </a>
-</li>
+</div>
+<div class="col">
+    <a class="{% if grand_total %}text-info font-weight-bold{% else %}{% endif %} nav-link" href="">
+        <h4 class="my-0"><i class="fas fa-cart-plus"></i>
+            {% if grand_total %}
+            ${{ grand_total|floatformat:2 }}
+            {% else %}
+            $0.00
+            {% endif %}
+        </h4>
+    </a>
+</div>

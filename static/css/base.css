@@ -25,6 +25,10 @@ header {
     width: 1.5rem;
 }
 
+.navbar-outer {
+    justify-content: center;
+}
+
 .main-nav-container h4 {
     color: #700170;
 }
@@ -49,8 +53,10 @@ header {
 }
 
 #free-delivery-banner {
-    background-color: #700170;
+    /* background-color: #700170; */
+    background-color: #000;
     color: #fcf838;
+    /* color: #fff; */
 }
 
 /* -------------------------------- Media Queries */
