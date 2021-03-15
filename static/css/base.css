@@ -4,7 +4,7 @@ html {
 
 body {
     background-color: #e9ebd2;
-    margin-top: 500px;
+    margin-top: 180px;
     font-family: 'Noto Serif', serif;
 }
 
@@ -59,6 +59,12 @@ header {
     /* color: #fff; */
 }
 
+.image-container img {
+    object-fit: contain;
+    width: 60vw;
+    height: 60vh;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
@@ -69,17 +75,35 @@ header {
 }
 
 /* fixed top navbar only on medium and up */
-/* @media (min-width: 992px) {
-    .fixed-top-desktop-only {
+@media (min-width: 992px) {
+    /* .fixed-top-desktop-only {
         position: fixed;
         top: 0;
         right: 0;
         left: 0;
         z-index: 1030;
-    }
+    } */
 
-    .header-container {
+    /* .header-container {
         padding-top: 164px;
-    }
-} */
+    } */
+}
 
+@media (max-width: 992px) {
+    body {
+        margin-top: 110px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .image-container img {
+        object-fit: contain;
+        width: 90vw;
+        height: 90vh;
+    }
+
+    body {
+        margin-top: 0;
+    }
+}
