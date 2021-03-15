@@ -39,23 +39,29 @@
     <body>
         <header class="container-fluid fixed-top">
             <div id="topnav" class="row d-none d-lg-flex">
-                <div class="col-10 col-xl-8 offset-1 offset-xl-2 my-auto py-2">
+                <div class="col-10 col-xl-6 offset-1 offset-xl-3 my-auto py-2">
                     <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                        <h2 class="main-logo-head my-0 pl-xl-5"><strong>HOUSE OF SOCK</strong></h2>
+                        <h2 class="main-logo-head my-0 m-auto"><strong>HOUSE OF SOCK</strong></h2>
                     </a>
                 </div>
             </div>
-            <!-- <div class="row main-nav-container">
-                <div class="col-12">
-                    <ul class="list-inline list-unstyled text-center my-0">
-                        <li  class="list-inline-item mx-5">
+            <nav class="navbar navbar-expand-lg container-fluid main-nav-container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                        <i class="fas fa-bars"></i>
+                    </span>
+                </button>
+                <div class="collapse navbar-collapse" id="main-nav">
+                    <ul class="navbar-nav m-auto">
+                        <li class="nav-item mx-5">
                             <a class="nav-link" href="{% url 'home' %}">
                                 <h4 class="my-0"><i class="fas fa-home"></i> Home</h4>
                             </a>
                         </li>
-                        <li class="list-inline-item dropdown mx-5">
-                            <a class="nav-link" href="#" id="products-options" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
+                        <li class="nav-item mx-5 dropdown">
+                            <a class="nav-link" href="#" id="products-options" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
                                 <h4 class="my-0"><i class="fas fa-socks"></i> Products</h4>
                             </a>
                             <div class="dropdown-menu border-0" aria-labelledby="products-options">
@@ -63,28 +69,27 @@
                                 <a href="" class="dropdown-item">Womens Socks</a>
                             </div>
                         </li>
-                        <li class="list-inline-item dropdown mx-5">
-                            <a class="nav-link" href="#" id="user-options" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
+                        <li class="nav-item mx-5 dropdown">
+                            <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
                                 <h4 class="my-0"><i class="fas fa-user"></i> Account</h4>
                             </a>
                             <div class="dropdown-menu border-0" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
-                                <a href="" class="dropdown-item">Product Management</a>
+                                    <a href="" class="dropdown-item">Product Management</a>
                                 {% endif %}
-                                <a href="" class="dropdown-item">My Profile</a>
-                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                                    <a href="" class="dropdown-item">My Profile</a>
+                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                                 {% else %}
-                                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
                                 {% endif %}
                             </div>
                         </li>
-                        <li class="list-inline-item mx-5">
-                            <a class="{% if grand_total %}text-info font-weight-bold{% else %}{% endif %} nav-link"
-                                href="">
-                                <h4 class="my-0"><i class="fas fa-cart-plus"></i> 
+                        <li class="nav-item mx-5">
+                            <a class="{% if grand_total %}text-info font-weight-bold{% else %}{% endif %} nav-link" href="">
+                                <h4 class="my-0"><i class="fas fa-cart-plus"></i>
                                     {% if grand_total %}
                                     ${{ grand_total|floatformat:2 }}
                                     {% else %}
@@ -95,17 +100,17 @@
                         </li>
                     </ul>
                 </div>
-            </div> -->
+            </nav>
     
-            <div class="row navbar-outer">
+            <!-- <div class="row navbar-outer">
                 <nav class="navbar navbar-expand-lg row px-0">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon"><i class="fa fas-bars"></i></span>
                     </button>
                     {% include 'includes/mobile-nav.html' %}
                     {% include 'includes/main-nav.html' %}
                 </nav>
-            </div>
+            </div> -->
             <div id="free-delivery-banner" class="row text-center pt-1">
                 <div class="col">
                     <h4>Free delivery on all orders over €{{ free_shipping_threshold }}</h4>
