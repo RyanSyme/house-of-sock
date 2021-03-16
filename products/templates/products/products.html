@@ -18,10 +18,14 @@
                 <hr class="w-70 mb-2">
             </div>
         </div>
-        <div class="col-12 col-md-6 offset-md-3">
+        <div class="col-12 col-md-6 offset-md-3 mt-3">
+            <div class="col text-center">
+                <p>Looking for something specific?</p>
+            </div>
+            <div class="col mb-5">
                 <form method="GET" action="{% url 'products' %}">
                     <div class="input-group w-100">
-                        <input class="form-control" type="text" name="q" placeholder="Search our Socks">
+                        <input class="form-control" type="text" name="q" placeholder="Search by key word i.e 'Flamengo'">
                         <div class="input-group-append">
                             <button class="form-control btn" type="submit">
                                 <span class="icon">
@@ -32,6 +36,7 @@
                     </div>
                 </form>
             </div>
+        </div>
         <div class="row">
             <div class="product-container col-10 offset-1">
                 <div class="row mt-1 mb-1"></div>
