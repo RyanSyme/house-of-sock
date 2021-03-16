@@ -18,6 +18,20 @@
                 <hr class="w-70 mb-2">
             </div>
         </div>
+        <div class="col-12 col-md-6 offset-md-3">
+                <form method="GET" action="{% url 'products' %}">
+                    <div class="input-group w-100">
+                        <input class="form-control" type="text" name="q" placeholder="Search our Socks">
+                        <div class="input-group-append">
+                            <button class="form-control btn" type="submit">
+                                <span class="icon">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         <div class="row">
             <div class="product-container col-10 offset-1">
                 <div class="row mt-1 mb-1"></div>
