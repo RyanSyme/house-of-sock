@@ -14,7 +14,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col text-center mt-2">
-                <h2>Products</h2>
+                {% for c in current_categories %}
+                    {% if c.first == c.last %}
+                        <h2>Products</h2>
+                    {% else %}
+                        <h2>{{ c.friendly_name }}</h2>
+                    {% endif %}
+                {% endfor %}
                 <hr class="w-70 mb-2">
             </div>
         </div>
@@ -60,8 +66,11 @@
                                     <div class="row">
                                         <div class="col">
                                             <p class="lead mb-0 text-center font-weight-bold">€{{ product.price }}</p>
+                                            {% if product.category %}
+                                                <p><i class="fas fa-socks"></i> {{ product.category.friendly_name }}</p>
+                                            {% endif %}
                                             {% if product.rating %}
-                                                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }}</small>
+                                                <p class="text-muted"><i class="fas fa-star"></i>{{ product.rating }}</p>
                                             {% else %}
                                                 <small class="text-muted">No Rating</small>
                                             {% endif %}
