@@ -1,3 +1,4 @@
+from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
@@ -36,7 +37,7 @@ def cart_contents(request):
         delivery = 0
         free_delivery_delta = 0
     elif total < settings.FREE_DELIVERY_THRESHOLD:
-        delivery = 6.95
+        delivery = Decimal(6.95)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
     else:
         delivery = 0
