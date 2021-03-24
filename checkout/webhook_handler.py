@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 
-
+# all webhook handlers taken from codeinstitute boutique ado
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
 
