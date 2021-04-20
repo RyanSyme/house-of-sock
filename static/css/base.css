@@ -23,10 +23,15 @@ header {
     width: 1.5rem;
 }
 
+.logo-font {
+    font-family: 'Rock Salt', cursive;
+    color: #700170;
+}
+
 /* --------------------------- Navbar --------------------------- */
 
 .navbar-toggler {
-    color: #000;
+    color: #700170;
 }
 
 .navbar-outer {
@@ -46,21 +51,22 @@ header {
     color: #700170;
 }
 
-.overlay {
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    background: white;
-    z-index: -1;
-}
+
 
 #free-delivery-banner {
     /* background-color: #700170; */
     background-color: #000;
     color: #fcf838;
     /* color: #fff; */
+}
+
+.small-screen-header h2 {
+    font-size: 20px;
+    color: #700170;
+}
+
+.nav-link h4 {
+    display: flex;
 }
 
 /* --------------------------- Dont know --------------------------- */
@@ -92,7 +98,30 @@ header {
 /* --------------------------- Index --------------------------- */
 
 .callout-container {
-    background: url(media/callout.jpg);
+    height: 70vh;
+    width: 100%;
+    background-image: url(/media/callout.jpg);
+}
+
+.opaque-background {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(163, 161, 58, 0.8);
+}
+
+.callout-header {
+    color: #700170;
+    z-index: 999999;
+}
+
+.callout-btn {
+    z-index: 999999;
+}
+
+.btn-callout {
+    color: #fcf838;
+    background-color: #700170;
+    font-weight: bold;
 }
 
 /* -------------------------------- Media Queries */
@@ -117,6 +146,12 @@ header {
     /* .header-container {
         padding-top: 164px;
     } */
+    .navbar-expand-lg {
+        -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        -ms-flex-pack: start;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 992px) {
@@ -131,5 +166,9 @@ header {
         object-fit: contain;
         width: 90vw;
         height: 90vh;
+    }
+
+    .navbar {
+        display: initial;
     }
 }

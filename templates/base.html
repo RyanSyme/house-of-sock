@@ -36,17 +36,18 @@
 
     <title>House of Sock! {% block extra_title %}{% endblock %}</title>
     </head>
-    
     <body>
         <header class="container-fluid fixed-top">
             <div id="topnav" class="row d-none d-lg-flex">
-                <div class="col-10 col-xl-6 offset-1 offset-xl-3 my-auto py-2">
+                <div class="col-8 col-xl-6 offset-2 offset-xl-3 my-auto py-2">
                     <a href="{% url 'home' %}" class="nav-link main-logo-link">
                         <h2 class="main-logo-head my-0 m-auto"><strong>HOUSE OF SOCK</strong></h2>
                     </a>
                 </div>
             </div>
             <nav class="navbar navbar-expand-lg container-fluid main-nav-container">
+                <div class="row ml-lg-5">
+                    <div class="col-3">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon">
@@ -57,13 +58,13 @@
                     <ul class="navbar-nav m-auto">
                         <li class="nav-item mx-5">
                             <a class="nav-link" href="{% url 'home' %}">
-                                <h4 class="my-0"><i class="fas fa-home"></i> Home</h4>
+                                <h4 class="my-0"><i class="fas fa-home pr-1"></i> Home</h4>
                             </a>
                         </li>
                         <li class="nav-item mx-5 dropdown">
                             <a class="nav-link" href="#" id="products-options" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
-                                <h4 class="my-0"><i class="fas fa-socks"></i> Products</h4>
+                                <h4 class="my-0"><i class="fas fa-socks pr-1"></i> Products</h4>
                             </a>
                             <div class="dropdown-menu border-0" aria-labelledby="products-options">
                                 <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
@@ -74,7 +75,7 @@
                         <li class="nav-item mx-5 dropdown">
                             <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
-                                <h4 class="my-0"><i class="fas fa-user"></i> Account</h4>
+                                <h4 class="my-0"><i class="fas fa-user pr-1"></i> Account</h4>
                             </a>
                             <div class="dropdown-menu border-0" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}
@@ -91,17 +92,34 @@
                         </li>
                         <li class="nav-item mx-5">
                             <a class="{% if grand_total %}text-info font-weight-bold{% else %}{% endif %} nav-link" href="{% url 'view_cart' %}">
-                                <h4 class="my-0"><i class="fas fa-cart-plus"></i>
+                                <h4 class="my-0"><i class="fas fa-cart-plus pr-1"></i>
                                     {% if grand_total %}
-                                        ${{ total|floatformat:2 }}
+                                        €{{ total|floatformat:2 }}
                                     {% else %}
-                                        $0.00
+                                        €0.00
                                     {% endif %}
                                 </h4>
                             </a>
                         </li>
                     </ul>
                 </div>
+            </div>
+            <div class="col-7 d-flex d-lg-none">
+                <h3 class="logo-font"><strong>HOUSE OF SOCK</strong></h3>
+            </div>
+            <div class="col-2  d-flex d-lg-none">
+                <a class="{% if grand_total %}text-info font-weight-bold{% else %}{% endif %}" href="{% url 'view_cart' %}">
+                    <h4 class="my-0"><i class="fas fa-cart-plus"></i>
+                        {% if grand_total %}
+                            ${{ total|floatformat:2 }}
+                        {% else %}
+                            $0.00
+                        {% endif %}
+                    </h4>
+                </a>
+            </div>
+            </div>
+            </div>
             </nav>
     
             <!-- <div class="row navbar-outer">
