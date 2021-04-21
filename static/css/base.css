@@ -124,7 +124,19 @@ header {
     font-weight: bold;
 }
 
-/* -------------------------------- Media Queries */
+/* --------------------------- Checkout --------------------------- */
+
+select,
+select option {
+    color: #000;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #aab7c4 !important;
+}
+
+/* --------------------------- Media Queries ---------------------- */
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
