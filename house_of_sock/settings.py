@@ -28,7 +28,7 @@ SECRET_KEY = '%*zarr06xipf)ze+e1ncn%i@9t3vef+6t&cwuy-4vv(qb(%zk('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['house-of-sock.heroku.com', 'localhost']
+ALLOWED_HOSTS = ['house-of-sock.herokuapp.com', 'localhost']
 
 
 # Application definition
