@@ -120,17 +120,17 @@ WSGI_APPLICATION = 'house_of_sock.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-if 'DATABASE_URL' in os.environ:
-    DATABASES = {
-        'default': dj_database_url.parse('postgres://fzpczeepujiblx:a47c05050b4e47343e82ce5e85ed9c749dfa5a35784ac3308c1fb55a02786f4b@ec2-54-155-226-153.eu-west-1.compute.amazonaws.com:5432/d1egnc7er11i9r')
+# if 'DATABASE_URL' in os.environ:
+# DATABASES = {
+#     'default': dj_database_url.parse('postgres://fzpczeepujiblx:a47c05050b4e47343e82ce5e85ed9c749dfa5a35784ac3308c1fb55a02786f4b@ec2-54-155-226-153.eu-west-1.compute.amazonaws.com:5432/d1egnc7er11i9r')
+# }
+# else:
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
+}
 
 
 # Password validation
