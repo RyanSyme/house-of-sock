@@ -121,16 +121,16 @@ WSGI_APPLICATION = 'house_of_sock.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 # if 'DATABASE_URL' in os.environ:
-# DATABASES = {
-#     'default': dj_database_url.parse('postgres://fzpczeepujiblx:a47c05050b4e47343e82ce5e85ed9c749dfa5a35784ac3308c1fb55a02786f4b@ec2-54-155-226-153.eu-west-1.compute.amazonaws.com:5432/d1egnc7er11i9r')
-# }
-# else:
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse('postgres://fzpczeepujiblx:a47c05050b4e47343e82ce5e85ed9c749dfa5a35784ac3308c1fb55a02786f4b@ec2-54-155-226-153.eu-west-1.compute.amazonaws.com:5432/d1egnc7er11i9r')
 }
+# else:
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
@@ -206,12 +206,12 @@ STRIPE_CURRENCY = 'eur'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
-if 'DEVELOPMENT' in os.environ:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    DEFAULT_FROM_EMAIL = 'houseofsock@example.com'
-else:
-    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_USE_TLS = TrueEMAIL_PORT = 587
-    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
-    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+# if 'DEVELOPMENT' in os.environ:
+#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#     DEFAULT_FROM_EMAIL = 'houseofsock@example.com'
+# else:
+#     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#     EMAIL_USE_TLS = TrueEMAIL_PORT = 587
+#     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+#     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+#     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
