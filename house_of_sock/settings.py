@@ -123,7 +123,7 @@ WSGI_APPLICATION = 'house_of_sock.wsgi.application'
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
-        'default': dj_database_url.parse('postgres://hqoyscdbnzazzp:8758e3f08cbe03ef674729a29fab5c72ee46e42449181835627213f502e5d5b7@ec2-54-72-155-238.eu-west-1.compute.amazonaws.com:5432/d77sckp160lv4l')
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 else:
     DATABASES = {
