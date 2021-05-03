@@ -3,8 +3,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
+from django.http import HttpResponse, HttpResponseRedirect
 
-from .models import Product, Category
+from .models import Product, Category, Comment, CommentForm
 from .forms import ProductForm
 
 
@@ -12,7 +13,6 @@ def all_products(request):
     """
         View returns all products page
     """
-
     products = Product.objects.all()
     query = None
     categories = None
@@ -127,3 +127,23 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
+
+
+def add_comment(request, product_id):
+    url = request.META.get('HTTP_REFERER')  # get last url
+    # return HttpResponse(url)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            data = Comment()  # create relation with model
+            data.subject = form.cleaned_data['subject']
+            data.comment = form.cleaned_data['comment']
+            data.rating = form.cleaned_data['rating']
+            data.product_id = product_id
+            current_user = request.user
+            data.user_id = current_user.id
+            data.save()  # save data to table
+            messages.success(request, "Your review has been posted successfully.")
+            return redirect(reverse('products'))
+
+    return HttpResponseRedirect(url)
