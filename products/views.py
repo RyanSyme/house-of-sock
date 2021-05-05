@@ -5,7 +5,7 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 from django.http import HttpResponse, HttpResponseRedirect
 
-from .models import Product, Category, Comment, CommentForm
+from .models import Product, Category
 from .forms import ProductForm
 
 
@@ -130,8 +130,7 @@ def delete_product(request, product_id):
 
 
 def add_comment(request, product_id):
-    url = request.META.get('HTTP_REFERER')  # get last url
-    # return HttpResponse(url)
+    product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -139,11 +138,11 @@ def add_comment(request, product_id):
             data.subject = form.cleaned_data['subject']
             data.comment = form.cleaned_data['comment']
             data.rating = form.cleaned_data['rating']
-            data.product_id = product_id
+            data.product_id = product.id
             current_user = request.user
             data.user_id = current_user.id
             data.save()  # save data to table
-            messages.success(request, "Your review has been posted successfully.")
+            messages.success(request, "Review posted successfully.")
             return redirect(reverse('products'))
 
-    return HttpResponseRedirect(url)
+    return redirect(reverse('products'))

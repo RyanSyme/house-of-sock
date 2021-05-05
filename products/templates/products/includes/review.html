@@ -1,11 +1,12 @@
 <div class="row">
     <div class="col-md-6">
         <div class="product-reviews">
-            <div class="single-review">
+            {% for review in product.rreviews.all %}
                 <div class="review-heading">
                     <div><a href="#"><i class="fa fa-user-o"></i> John</a></div>
-                    <div><a href="#"><i class="fa fa-clock-o"></i> 27 DEC 2017 / 8:0 PM</a></div>
+                    <div><i class="fa fa-clock-o"></i>{{ review.date_added|date:"d-m-y" }}</div>
                     <div class="review-rating pull-right">
+                        {{ review.stars }}
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -14,52 +15,14 @@
                     </div>
                 </div>
                 <div class="review-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo consequat.Duis aute
-                        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p>{{ review.content }}</p>
                 </div>
             </div>
-
-            <div class="single-review">
-                <div class="review-heading">
-                    <div><a href="#"><i class="fa fa-user-o"></i> John</a></div>
-                    <div><a href="#"><i class="fa fa-clock-o"></i> 27 DEC 2017 / 8:0 PM</a></div>
-                    <div class="review-rating pull-right">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o empty"></i>
-                    </div>
-                </div>
-                <div class="review-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo consequat.Duis aute
-                        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                </div>
+            {% empty %}
+            <div>
+                <p>Be first to review these (probably awesome) socks.</p>
             </div>
-
-            <div class="single-review">
-                <div class="review-heading">
-                    <div><a href="#"><i class="fa fa-user-o"></i> John</a></div>
-                    <div><a href="#"><i class="fa fa-clock-o"></i> 27 DEC 2017 / 8:0 PM</a></div>
-                    <div class="review-rating pull-right">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o empty"></i>
-                    </div>
-                </div>
-                <div class="review-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo consequat.Duis aute
-                        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                </div>
-            </div>
+            {% endfor %}
             <ul class="reviews-pages">
                 <li class="active">1</li>
                 <li><a href="#">2</a></li>
@@ -83,11 +46,11 @@
                 <div class="input-rating">
                     <strong class="text-uppercase">Your Rating: </strong>
                     <div class="stars">
-                        <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
-                        <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
-                        <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
-                        <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
-                        <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+                        <input type="radio" id="star5" name="rating" value="5" /><label for="star5"><i class="fa fa-star-o empty"></i></label>
+                        <input type="radio" id="star4" name="rating" value="4" /><label for="star4"><i class="fa fa-star-o empty"></i></label>
+                        <input type="radio" id="star3" name="rating" value="3" /><label for="star3"><i class="fa fa-star-o empty"></i></label>
+                        <input type="radio" id="star2" name="rating" value="2" /><label for="star2"><i class="fa fa-star-o empty"></i></label>
+                        <input type="radio" id="star1" name="rating" value="1" /><label for="star1"><i class="fa fa-star-o empty"></i></label>
                     </div>
                 </div>
             </div>
