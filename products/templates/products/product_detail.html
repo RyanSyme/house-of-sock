@@ -110,6 +110,7 @@
         {% for review in product.reviews.all %}
         <div>
             <p>
+                {{ review.user }},
                 Date: {{ review.date_added }},
                 Stars: {{ review.stars }}
             </p>
