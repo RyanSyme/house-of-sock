@@ -3,8 +3,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
+from django.http import HttpResponseRedirect
 
-from .models import Product, Category
+from .models import Product, Category, Review
 from .forms import ProductForm
 
 
@@ -47,6 +48,14 @@ def product_detail(request, product_id):
     """
 
     product = get_object_or_404(Product, pk=product_id)
+
+    # Add review
+    if request.method == 'POST' and request.user.is_authenticated:
+        stars = request.POST.get('stars', 5)
+        content = request.POST.get('content', '')
+        review = Review.objects.create(product=product, user=request.user, stars=stars, content=content)
+
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
     context = {
         'product': product,
