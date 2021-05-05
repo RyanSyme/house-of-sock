@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="product-reviews">
+            {% for review in product.reviews.all %}
+            <div class="single-review">
+                <div class="review-heading">
+                    <div><i class="fa fa-user-o"></i> {{ review.user }}</div>
+                    <div><i class="fa fa-clock-o"></i> {{ review.date_added }}</div>
+                    <div class="review-rating pull-right">
+                        Rating: {{ review.stars }} <i class="fa fa-star"></i>
+                    </div>
+                </div>
+                <div class="review-body">
+                    <p>{{ review.content }}</p>
+                </div>
+            </div>
+            {% empty %}
+                <p>Be first to review these (probably awesome) socks.</p>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h4 class="text-uppercase">Write A Review</h4>
+        {% if request.user.is_authenticated %}
+        <form class="review-form" method="POST" action=".">
+            {% csrf_token %}
+            <div class="form-group">
+                <textarea class="input" name="content" placeholder="Your review"></textarea>
+            </div>
+            <div class="form-group">
+                <div class="input-rating">
+                    <strong class="text-uppercase">Your Rating: </strong>
+                    <div class="stars">
+                        <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+                        <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
+                        <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
+                        <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
+                        <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+                    </div>
+                </div>
+            </div>
+            <button class="primary-btn">Submit</button>
+        </form>
+        {% else %}
+            <p>Please sign in to add a review</p>
+        {% endif %}
+    </div>
+</div>

@@ -105,7 +105,7 @@
             </div>
         </div>
     </div>
-    <h2>Reviews</h2>
+    <!-- <h2>Reviews</h2>
     <div class="reviews-container">
         {% for review in product.reviews.all %}
         <div>
@@ -150,7 +150,8 @@
         {% else %}
             <p>Please sign in to add a review</p>
         {% endif %}
-    </div>
+    </div> -->
+    {% include 'products/includes/review.html' %}
 {% endblock %}
 
 {% block postloadjs %}
