@@ -87,7 +87,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="col-12">
                                 <a href="{% url 'products' %}" class="btn btn-danger">
                                     <span class="icon">
@@ -100,6 +99,11 @@
                             <small class="text-muted ml-2">return to products page</small>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
+                    </form>
+                    <form class="form update-form" method="POST" action="{% url 'add_to_wishlist' product.id %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        <button class="btn btn-black rounded-0 text-uppercase mt-5">Add to wishlist</button>
                     </form>
                 </div>
             </div>
