@@ -58,7 +58,7 @@ def product_detail(request, product_id):
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
     context = {
-        'product': product,
+        'product': product
     }
 
     return render(request, 'products/product_detail.html', context)

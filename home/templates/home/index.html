@@ -69,4 +69,18 @@
             </div>
         </div>
     </div> -->
+    <div class="carousel-header w-100 h3 m-0 p-3 d-flex align-items-center justify-content-center"><a class="btn-button  text-center" href="{% url 'products' %}">Socks<i class="far fa-hand-pointer"></i><small class="h6 bold ml-1"> VIEW ALL</small></a></div>
+    <div class="product-row carousel">    
+        {% for product in products_slider %}
+            <a href="{% url 'product_detail' product.product_id %}" class="p-2 carousel-cell product-style d-flex flex-column">
+                <div class="img-container p-0 d-flex justify-content-center">                    
+                    <img class="img-thumbnail" src="{% get_media_prefix %}{{ product.image }}" alt="{{ product.name }}">
+                </div>
+                <strong class="my-2 w-100 product-name text-center mb-4">{{ product.name }}</strong>
+                <div class="position-absolute">
+                        <p class="my-2 bold text-dark">€{{ product.price }}</p>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
 {% endblock %}
