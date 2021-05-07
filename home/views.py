@@ -9,13 +9,13 @@ def index(request):
     """
         View returns index page
     """
-    products = Product.objects.all()
+    # products = Product.objects.all()
 
-    products_slider = random.sample(
-        list(products), 6)
+    # products_slider = random.sample(
+    #     list(products), 6)
 
-    context = {
-        'products_slider': products_slider
-    }
+    # context = {
+    #     'products_slider': products_slider
+    # }
 
-    return render(request, 'home/index.html', context)
+    return render(request, 'home/index.html')
