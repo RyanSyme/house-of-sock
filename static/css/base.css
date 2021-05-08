@@ -108,34 +108,7 @@ footer {
     overflow-y: auto;
 }
 
-/* --------------------------- Index --------------------------- */
 
-.callout-container {
-    height: 70vh;
-    width: 100%;
-    background-image: url(/media/callout.jpg);
-}
-
-.opaque-background {
-    height: 100%;
-    width: 100%;
-    background-color: rgb(163, 161, 58, 0.8);
-}
-
-.callout-header {
-    color: #700170;
-    z-index: 999999;
-}
-
-.callout-btn {
-    z-index: 999999;
-}
-
-.btn-callout {
-    color: #fcf838;
-    background-color: #700170;
-    font-weight: bold;
-}
 
 /* --------------------------- Product Page ----------------------- */
 
@@ -248,14 +221,6 @@ select option[value=""] {
   }
 }
 
-@media (min-width: 1020px) {
-    .opaque-background {
-        min-width: 300px;
-        min-height: 300px;
-    }
-  }
-
-
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
     /* .fixed-top-desktop-only {
@@ -305,9 +270,5 @@ select option[value=""] {
         font-size: 15px;
         word-spacing: 300px;
         text-align: center;
-    }
-
-    .callout-header {
-        font-size: 2rem;
     }
 }
