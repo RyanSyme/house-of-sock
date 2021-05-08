@@ -69,6 +69,19 @@ header {
     display: flex;
 }
 
+/* --------------------------- footer --------------------------- */
+
+footer {
+    background-color: #fcf838;
+}
+
+.social-media-icons i {
+    color: #700170;
+}
+
+.copy-right {
+    color: #700170;
+}
 /* --------------------------- Dont know --------------------------- */
 
 .image-container img {
@@ -235,6 +248,14 @@ select option[value=""] {
   }
 }
 
+@media (min-width: 1020px) {
+    .opaque-background {
+        min-width: 300px;
+        min-height: 300px;
+    }
+  }
+
+
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
     /* .fixed-top-desktop-only {
@@ -272,5 +293,21 @@ select option[value=""] {
 
     .navbar {
         display: initial;
+    }
+
+    .social-media-icons i {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .mobile-logo {
+        font-size: 15px;
+        word-spacing: 300px;
+        text-align: center;
+    }
+
+    .callout-header {
+        font-size: 2rem;
     }
 }
