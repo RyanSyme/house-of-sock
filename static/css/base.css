@@ -37,6 +37,7 @@ header {
 .btn-main:hover {
     color: #700170;
     background-color: #fcf838;
+    font-weight: bold;
 }
 
 /* --------------------------- Navbar --------------------------- */
@@ -138,6 +139,17 @@ footer {
 
 
 /* --------------------------- Product Page ----------------------- */
+
+.searchbar {
+    border: solid 1px;
+}
+
+input[name='q']:focus,
+input[name='q']:active {
+    color: #300030 !important;
+    box-shadow: none !important;
+    border: none !important;
+}
 
 input[name='q']::placeholder {
     color: #aab7c4;
@@ -295,6 +307,11 @@ select option[value=""] {
 @media (max-width: 425px) {
     .mobile-logo {
         font-size: 15px;
+        word-spacing: 300px;
+        text-align: center;
+    }
+
+    .cart-logo {
         word-spacing: 300px;
         text-align: center;
     }

@@ -48,7 +48,7 @@
             <nav class="navbar navbar-expand-lg container-fluid main-nav-container">
                 <div class="row ml-lg-5">
                     <div class="col-4 col-md-3">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav"
+                <button class="navbar-toggler pt-3 pt-md-2" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon">
                         <i class="fas fa-bars"></i>
@@ -110,7 +110,7 @@
             </div>
             <div class="col-4 col-md-2  d-flex d-lg-none">
                 <a class="{% if grand_total %}text-info font-weight-bold{% else %}{% endif %}" href="{% url 'view_cart' %}">
-                    <h4 class="my-0"><i class="fas fa-cart-plus"></i>
+                    <h4 class="my-0 cart-logo pt-1"><i class="fas fa-cart-plus"></i>
                         {% if grand_total %}
                             ${{ total|floatformat:2 }}
                         {% else %}
@@ -121,16 +121,6 @@
             </div>
             </div>
             </nav>
-    
-            <!-- <div class="row navbar-outer">
-                <nav class="navbar navbar-expand-lg row px-0">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"><i class="fa fas-bars"></i></span>
-                    </button>
-                    {% include 'includes/mobile-nav.html' %}
-                    {% include 'includes/main-nav.html' %}
-                </nav>
-            </div> -->
             <div id="free-delivery-banner" class="row text-center pt-1">
                 <div class="col">
                     <h4>Free delivery on all orders over €{{ free_delivery_threshold }}!</h4>
