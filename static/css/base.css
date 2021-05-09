@@ -37,7 +37,7 @@ header {
 .btn-main:hover {
     color: #700170;
     background-color: #fcf838;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 /* --------------------------- Navbar --------------------------- */
@@ -66,10 +66,8 @@ header {
 
 
 #free-delivery-banner {
-    /* background-color: #700170; */
     background-color: #300030;
     color: #fcf838;
-    /* color: #fff; */
 }
 
 .small-screen-header h2 {
@@ -153,6 +151,32 @@ input[name='q']:active {
 
 input[name='q']::placeholder {
     color: #aab7c4;
+}
+
+.product-image image {
+    padding-top: 10px;
+}
+
+.product-image:hover {
+    box-shadow: 0 4px 8px 0 rgba(112, 1, 112, 0.5), 0 6px 20px 0 rgba(112, 1, 112, 0.5);
+}
+
+.product-link {
+    color: #700170;
+}
+
+.product-link:hover {
+    color: #700170;
+    text-shadow: 1px 1px 2px #fcf838;
+}
+
+.review-section {
+    background-color: rgb(163, 161, 58, 0.4);
+}
+
+.review-input {
+    width: 40vw;
+    height: 30vh;
 }
 
 /* --------------------------- Checkout --------------------------- */
@@ -314,5 +338,13 @@ select option[value=""] {
     .cart-logo {
         word-spacing: 300px;
         text-align: center;
+    }
+    .review-section {
+        max-width: 100vw;
+        margin-left: 0;
+    }
+
+    .review-input {
+        width: 90vw;
     }
 }

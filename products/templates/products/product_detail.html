@@ -15,17 +15,17 @@
         <div class="row">
             <div class="col text-center mt-2">
                 <h2>Products</h2>
+                {% if request.user.is_superuser %}
+                    <small class="text-center">
+                        <a class="btn btn-outline-info btn-sm" href="{% url 'edit_product' product.id %} btn btn-outline-info">Edit</a>
+                        <a class="btn btn-outline-danger btn-sm" href="{% url 'delete_product' product.id %}">Delete</a>
+                    </small>
+                {% endif %}
                 <hr class="w-70 mb-2">
             </div>
         </div>
         <div class="row">
             <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-                {% if request.user.is_superuser %}
-                        <small class="ml-3">
-                            <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-                            <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                        </small>
-                    {% endif %}
                 <div class="image-container my-3">
                     {% if product.image %}
                     <a href="{{ product.image.url }}" target="_blank">
@@ -40,18 +40,23 @@
             </div>
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="product-details-container">
-                    <h4>{{ product.name }}</h4>
+                    <h4 class="logo-font mt-3">{{ product.name }}</h4>
+                    <form class="form update-form" method="POST" action="{% url 'add_to_wishlist' product.id %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        <button class="btn btn-main btn-sm text-uppercase my-3">Add to wishlist</button>
+                    </form>
                     <p>€{{ product.price }}</p>
                     {% if product.category %}
-                        <a href="{% url 'products' %}?category={{ product.category.name }}">
-                            <p><i class="fas fa-socks"></i> {{ product.category.friendly_name }}</p>
-                        </a>
+                    <p><a class="product-link logo-font" href="{% url 'products' %}?category={{ product.category.name }}">
+                            <i class="fas fa-socks"></i> {{ product.category.friendly_name }}
+                        </a></p>
                     {% endif %}
-                    {% if product.rating %}
+                    <!-- {% if product.rating %}
                     <p>{{ product.rating|floatformat:"0" }}<i class="fas fa-star"></i></p>
                     {% else %}
                     <p>Be first to rate this product</p>
-                    {% endif %}
+                    {% endif %} -->
                     <p>{{ product.description }}</p>
                     <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
                         {% csrf_token %}
@@ -88,22 +93,12 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <a href="{% url 'products' %}" class="btn btn-danger">
-                                    <span class="icon">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="text-uppercase">Keep Socking</span>
-                                </a>
-                                <input type="submit" class="btn btn-success text-uppercase" value="Add to Cart">
+                                <a href="{% url 'products' %}" class="btn btn-danger btn-detail"><i class="fas fa-chevron-left"></i> Keep Socking</a>
+                                <input type="submit" class="btn btn-success btn-detail text-uppercase" value="Add to Cart">
                             </div>
                             <small class="text-muted ml-2">return to products page</small>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
-                    </form>
-                    <form class="form update-form" method="POST" action="{% url 'add_to_wishlist' product.id %}">
-                        {% csrf_token %}
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                        <button class="btn btn-black rounded-0 text-uppercase mt-5">Add to wishlist</button>
                     </form>
                 </div>
             </div>
