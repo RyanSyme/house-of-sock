@@ -20,11 +20,10 @@
         <div class="row">
             <div class="col">
                 <hr>
-                <h2 class="logo-font mb-4">Wishlist</h2>
+                <h2 class="logo-font mb-4 text-center">Wishlist</h2>
                 <hr>
             </div>
         </div>
-
         <div class="row">
             <div class="col">
                 {% if wishlist %}
@@ -57,12 +56,12 @@
                                     <td class="py-3 w-25">
                                         <form class="form update-form" method="POST" action="{% url 'product_detail' product.id %}">
                                             {% csrf_token %}
-                                            <a href="{% url 'product_detail' product.id %}" class="btn btn-info text-uppercase my-0">View Sock</a>
+                                            <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-info text-uppercase my-0">View Sock</a>
                                         </form>
                                         <form class="form update-form" method="POST" action="{% url 'delete_from_wishlist' product.id %}">
                                             {% csrf_token %}
                                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                            <button class="btn btn-danger text-uppercase mt-2"><i class="fas fa-times"></i> Remove</button>
+                                            <button class="btn btn-outline-danger text-uppercase mt-2"><i class="fas fa-times"></i> Remove</button>
                                         </form>
                                     </td>
                                 </tr>
