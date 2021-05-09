@@ -27,6 +27,11 @@
     font-weight: bold;
 }
 
+.btn-callout:hover {
+    color: #700170;
+    background-color: #fcf838;
+}
+
 @media (min-width: 1020px) {
     .opaque-background {
         min-width: 300px;

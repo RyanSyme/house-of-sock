@@ -5,7 +5,8 @@ html {
 }
 
 body {
-    background-color: #e9ebd2;
+    /* background-color: #e9ebd2; */
+    color: #300030;
     margin-top: 180px;
     font-family: 'Noto Serif', serif;
 }
@@ -26,6 +27,16 @@ header {
 .logo-font {
     font-family: 'Rock Salt', cursive;
     color: #700170;
+}
+
+.btn-main {
+    color: #fcf838;
+    background-color: #700170;
+}
+
+.btn-main:hover {
+    color: #700170;
+    background-color: #fcf838;
 }
 
 /* --------------------------- Navbar --------------------------- */
@@ -55,7 +66,7 @@ header {
 
 #free-delivery-banner {
     /* background-color: #700170; */
-    background-color: #000;
+    background-color: #300030;
     color: #fcf838;
     /* color: #fff; */
 }
@@ -69,6 +80,18 @@ header {
     display: flex;
 }
 
+.nav-link h4:hover {
+    color: #300030;
+}
+
+.dropdown-menu {
+    background-color: #fcf838;
+}
+
+.dropdown-item {
+    color: #700170;
+}
+
 /* --------------------------- footer --------------------------- */
 
 footer {
@@ -77,6 +100,10 @@ footer {
 
 .social-media-icons i {
     color: #700170;
+}
+
+.social-media-icons i:hover {
+    color: #300030;
 }
 
 .copy-right {
