@@ -17,7 +17,7 @@
                 <h2>Products</h2>
                 {% if request.user.is_superuser %}
                     <small class="text-center">
-                        <a class="btn btn-outline-info btn-sm" href="{% url 'edit_product' product.id %} btn btn-outline-info">Edit</a>
+                        <a class="btn btn-outline-info btn-sm" href="{% url 'edit_product' product.id %}">Edit</a>
                         <a class="btn btn-outline-danger btn-sm" href="{% url 'delete_product' product.id %}">Delete</a>
                     </small>
                 {% endif %}

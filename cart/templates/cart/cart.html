@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-12 col-lg-8 offset-lg-2">
                 <hr>
-                <h2>Shopping Cart</h2>
+                <h2 class="logo-font">Shopping Cart</h2>
                 <hr>
             </div>
         </div>
@@ -117,14 +117,13 @@
                     </table>
                 </div>
                 {% else %}
-                    <p class="lead mb-5">Your cart is empty.</p>
-                    <a href="{% url 'products' %}" class="btn btn-lg">
-                        <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
-                        </span>
-                        <span class="text-uppercase">Keep Socking?</span>
-                    </a>
-                    <small class="text-muted">return to products page</small>
+                <div class="row">
+                    <div class="col-12 col-lg-8 offset-lg-2">
+                        <p class="lead my-5">Your cart is empty.</p>
+                        <a href="{% url 'products' %}" class="btn btn-danger btn-detail"><i class="fas fa-chevron-left"></i> Keep Socking</a>
+                        <small class="text-muted">Return to products page</small>
+                    </div>
+                </div>
                 {% endif %}
             </div>
         </div>

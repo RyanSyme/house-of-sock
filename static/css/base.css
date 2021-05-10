@@ -185,6 +185,10 @@ input[name='q']::placeholder {
     height: 30vh;
 }
 
+.wishlist-table {
+    color: #300030;
+}
+
 /* --------------------------- Checkout --------------------------- */
 
 .cart-container {
@@ -277,6 +281,10 @@ select option[value=""] {
     overflow: hidden;
 }
 
+.form-control {
+    border: 1px solid #700170;
+}
+
 .btn-file input[type="file"] {
     position: absolute;
     top: 0;
@@ -296,6 +304,14 @@ select option[value=""] {
     background-color: #dc3545;
     border-radius: 0;
     border-color: #dc3545;
+}
+
+.wishlist-btn {
+    min-width: 115px;
+}
+
+.logout-container {
+    height: 55vh;
 }
 
 
@@ -355,6 +371,10 @@ select option[value=""] {
 }
 
 @media (max-width: 425px) {
+    body {
+        margin-top: 180px;
+    }
+
     .mobile-logo {
         font-size: 15px;
         word-spacing: 300px;
@@ -372,5 +392,14 @@ select option[value=""] {
 
     .review-input {
         width: 90vw;
+    }
+
+    .wishlist-btn {
+        font-size: 10px;
+        min-width: 0px;
+    }
+
+    .wishlist-table {
+        font-size: 10px;
     }
 }

@@ -28,12 +28,13 @@
             <div class="col">
                 {% if wishlist %}
                     <div class="table-responsive rounded">
-                        <table class="table table-sm table-borderless">
-                            <thead class="text-black">
+                        <table class="table table-sm table-borderless wishlist-table">
+                            <thead>
                                 <tr>
-                                    <th scope="col">Product Info</th>
+                                    <th scope="col" class="pl-5">Product Info</th>
                                     <th scope="col"></th>
                                     <th scope="col">Price</th>
+                                    <th scope="col"></th>
                                 </tr>
                             </thead>
 
@@ -46,7 +47,7 @@
                                         <img class="w-100" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ product.name }}">
                                         {% endif %}
                                     </td>
-                                    <td class="py-3">
+                                    <td class="wishlist-product py-3">
                                         <p class="my-0"><strong>{{ product.name }}</strong></p>
                                         <p class="my-0 small text-muted">SKU: {{ product.sku|upper }}</p>
                                     </td>
@@ -56,24 +57,19 @@
                                     <td class="py-3 w-25">
                                         <form class="form update-form" method="POST" action="{% url 'product_detail' product.id %}">
                                             {% csrf_token %}
-                                            <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-info text-uppercase my-0">View Sock</a>
+                                            <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-info text-uppercase wishlist-btn my-0">View Sock</a>
                                         </form>
                                         <form class="form update-form" method="POST" action="{% url 'delete_from_wishlist' product.id %}">
                                             {% csrf_token %}
                                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                            <button class="btn btn-outline-danger text-uppercase mt-2"><i class="fas fa-times"></i> Remove</button>
+                                            <button class="btn btn-outline-danger text-uppercase wishlist-btn mt-2"><i class="fas fa-times"></i> Remove</button>
                                         </form>
                                     </td>
                                 </tr>
                             {% endfor %}
                             <tr>
                                 <td colspan="5" class="text-right">
-                                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                                        <span class="icon">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </span>
-                                        <span class="text-uppercase">Keep Socking</span>
-                                    </a>
+                                    <a href="{% url 'products' %}" class="btn btn-danger btn-detail"><i class="fas fa-chevron-left"></i> Keep Socking</a>
                                 </td>
                             </tr>
                         </table>

@@ -3,7 +3,7 @@
 .callout-container {
     height: 70vh;
     width: 100%;
-    background-image: url(/media/callout.jpg);
+    background-image: url(/media/callout-transparent.jpg);
 }
 
 .opaque-background {
