@@ -7,7 +7,6 @@ html {
 body {
     overflow-x: hidden !important;
     color: #300030;
-    margin-top: 180px;
     font-family: 'Noto Serif', serif;
 }
 
@@ -189,7 +188,7 @@ input[name='q']::placeholder {
     color: #300030;
 }
 
-/* --------------------------- Checkout --------------------------- */
+/* --------------------------- Cart --------------------------- */
 
 .cart-container {
     min-height: 55vh;
@@ -314,8 +313,27 @@ select option[value=""] {
     height: 55vh;
 }
 
+/* --------------------------- Toasts ----------------------------- */
 
+.success-header {
+    background-color: #82f56b;
+    color: #000;
+}
 
+.warning-header {
+    background-color: #ffd34e;
+    color: #000;
+}
+
+.info-header {
+    background-color: #53e8ff;
+    color: #000;
+}
+
+.error-header {
+    background-color: #ff4759;
+    color: #fff;
+}
 
 /* --------------------------- Media Queries ---------------------- */
 
@@ -328,17 +346,18 @@ select option[value=""] {
 
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
-    /* .fixed-top-desktop-only {
+    .fixed-top-desktop-only {
         position: fixed;
         top: 0;
         right: 0;
         left: 0;
         z-index: 1030;
-    } */
+    }
 
-    /* .header-container {
+    .header-container {
         padding-top: 164px;
-    } */
+    }
+    
     .navbar-expand-lg {
         -ms-flex-flow: row nowrap;
         flex-flow: row nowrap;
@@ -347,11 +366,11 @@ select option[value=""] {
     }
 }
 
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
     body {
         margin-top: 120px;
     }
-}
+} */
 
 
 @media (max-width: 768px) {
@@ -371,10 +390,6 @@ select option[value=""] {
 }
 
 @media (max-width: 425px) {
-    body {
-        margin-top: 180px;
-    }
-
     .mobile-logo {
         font-size: 15px;
         word-spacing: 300px;
@@ -385,6 +400,19 @@ select option[value=""] {
         word-spacing: 300px;
         text-align: center;
     }
+
+    .cart-table {
+        font-size: small;
+    }
+
+    .cart-qty {
+       display: block;
+    }
+
+    .qty_input {
+        padding-left: 18px;
+     }
+
     .review-section {
         max-width: 100vw;
         margin-left: 0;
