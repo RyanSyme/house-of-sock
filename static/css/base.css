@@ -323,6 +323,13 @@ select option[value=""] {
     height: 55vh;
 }
 
+/* --------------------------- Checkout ----------------------------- */
+
+#payment-form .form-control, #card-element {
+    border: 1px solid #700170 !important;
+    border-radius: .25rem;
+}
+
 /* --------------------------- Toasts ----------------------------- */
 
 .success-header {
