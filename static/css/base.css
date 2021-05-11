@@ -34,6 +34,19 @@ header {
     color: #700170;
 }
 
+.image-container img {
+    object-fit: contain;
+    width: 60vw;
+    height: 60vh;
+}
+
+.message-container {
+    position: fixed;
+    top: 45px;
+    right: 50px;
+    z-index: 99999999999;
+}
+
 .btn-main {
     color: #fcf838;
     background-color: #700170;
@@ -78,8 +91,6 @@ header {
     color: #700170;
 }
 
-
-
 #free-delivery-banner {
     background-color: #300030;
     color: #fcf838;
@@ -123,33 +134,6 @@ footer {
 .copy-right {
     color: #700170;
 }
-/* --------------------------- Dont know --------------------------- */
-
-.image-container img {
-    object-fit: contain;
-    width: 60vw;
-    height: 60vh;
-}
-
-.update-link,
-.remove-item {
-    cursor: pointer;
-}
-
-.message-container {
-    position: fixed;
-    top: 45px;
-    right: 50px;
-    z-index: 99999999999;
-}
-
-.cart-notification-wrapper {
-    height: 100px;
-    overflow: hidden;
-    overflow-y: auto;
-}
-
-
 
 /* --------------------------- Product Page ----------------------- */
 
@@ -185,6 +169,7 @@ input[name='q']::placeholder {
     text-shadow: 1px 1px 2px #fcf838;
 }
 
+
 .review-section {
     background-color: rgb(163, 161, 58, 0.4);
 }
@@ -194,21 +179,29 @@ input[name='q']::placeholder {
     height: 30vh;
 }
 
+/* --------------------------- Wishlist --------------------------- */
+
 .wishlist-table {
     color: #300030;
 }
 
-/* --------------------------- Cart --------------------------- */
+/* --------------------------- Cart Page --------------------------- */
+
+.cart-notification-wrapper {
+    height: 100px;
+    overflow: hidden;
+    overflow-y: auto;
+}
 
 .cart-container {
     min-height: 55vh;
 }
 
-/* --------------------------- Checkout --------------------------- */
+/* --------------------------- Checkout and forms ------------------ */
 
 select,
 select option {
-    color: #000;
+    color: #300030;
 }
 
 select:invalid,
@@ -323,11 +316,15 @@ select option[value=""] {
     height: 55vh;
 }
 
-/* --------------------------- Checkout ----------------------------- */
-
 #payment-form .form-control, #card-element {
     border: 1px solid #700170 !important;
     border-radius: .25rem;
+}
+
+
+.update-link,
+.remove-item {
+    cursor: pointer;
 }
 
 /* --------------------------- Toasts ----------------------------- */
@@ -357,7 +354,7 @@ select option[value=""] {
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
   .container {
-    max-width: 80%;
+    max-width: 90%;
   }
 }
 
@@ -382,13 +379,6 @@ select option[value=""] {
         justify-content: center;
     }
 }
-
-/* @media (max-width: 992px) {
-    body {
-        margin-top: 120px;
-    }
-} */
-
 
 @media (max-width: 768px) {
     .image-container img {
@@ -460,8 +450,8 @@ select option[value=""] {
 }
 
 @media (max-width: 320px) {
-.btn-back {
-    font-size: 93%;
-    margin-bottom: 5px;
+    .btn-back {
+        font-size: 93%;
+        margin-bottom: 5px;
     }
 }
