@@ -8,6 +8,7 @@ body {
     overflow-x: hidden !important;
     color: #300030;
     font-family: 'Noto Serif', serif;
+    margin-top: 0px;
 }
 
 header {
