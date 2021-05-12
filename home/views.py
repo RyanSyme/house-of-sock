@@ -1,6 +1,6 @@
-from django.shortcuts import render, reverse
+from django.shortcuts import render
 from django.urls import path
-from products.views import Product
+from products.models import Category, Product
 
 import random
 
@@ -9,13 +9,14 @@ def index(request):
     """
         View returns index page
     """
-    # products = Product.objects.all()
+    category = Category.objects.all()
+    products_slider = Product.objects.all().order_by('-id')[:6]
 
-    # products_slider = random.sample(
-    #     list(products), 6)
+    page='home'
+    context={
+        'page': page,
+        'products_slider': products_slider,
+        'category': category
+    }
 
-    # context = {
-    #     'products_slider': products_slider
-    # }
-
-    return render(request, 'home/index.html')
+    return render(request, 'home/index.html', context)
