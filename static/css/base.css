@@ -135,6 +135,18 @@ footer {
     color: #700170;
 }
 
+/* --------------------------- Index Page ------------------------- */
+
+.latest-container {
+    background-color: rgb(163, 161, 58, 0.4);
+}
+
+.latest-hr {
+    border-top: 1px solid rgb(112, 1, 112);
+}
+
+
+
 /* --------------------------- Product Page ----------------------- */
 
 .searchbar {
@@ -401,6 +413,10 @@ select option[value=""] {
         font-size: 15px;
         word-spacing: 300px;
         text-align: center;
+    }
+
+    .latest-card {
+        min-width: 318px;
     }
 
     .cart-logo {

@@ -10,12 +10,12 @@ def index(request):
         View returns index page
     """
     category = Category.objects.all()
-    products_slider = Product.objects.all().order_by('-id')[:6]
+    products_latest = Product.objects.all().order_by('-id')[:4]
 
     page='home'
     context={
         'page': page,
-        'products_slider': products_slider,
+        'products_latest': products_latest,
         'category': category
     }
 
