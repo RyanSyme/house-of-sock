@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', 'test') #You need to change 'test' to '' and delete DISABLE_COLLECTSTATIC in heroku when ready to deploy, also enable auto deploy in heroku 
+SECRET_KEY = os.environ.get('SECRET_KEY', '') #You need to change 'test' to '' and delete DISABLE_COLLECTSTATIC in heroku when ready to deploy, also enable auto deploy in heroku 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
