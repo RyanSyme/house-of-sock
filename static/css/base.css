@@ -444,7 +444,7 @@ select option[value=""] {
      }
 
     .decrement-qty {
-        ml-2
+        margin-left: 1.5rem;
     }
 
     .cart-remove {
