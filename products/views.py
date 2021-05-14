@@ -51,7 +51,7 @@ def product_detail(request, product_id):
 
     # Add review
     if request.method == 'POST' and request.user.is_authenticated:
-        stars = request.POST.get('stars', 5)
+        stars = request.POST.get('stars', '')
         content = request.POST.get('content', '')
         review = Review.objects.create(product=product, user=request.user, stars=stars, content=content)
 

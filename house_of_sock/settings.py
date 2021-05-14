@@ -21,6 +21,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
+if os.path.exists("env.py"):
+    import env
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', '') #You need to change 'test' to '' and delete DISABLE_COLLECTSTATIC in heroku when ready to deploy, also enable auto deploy in heroku 
