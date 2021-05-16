@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block add_title %}404{% endblock %}
+
+{% block content%}
+    <div class="container text-center">
+        <h1 class="logo-font d-inline-block px-2 pb-2 my-5">Ooops</h1>
+        <p>Looks like the page you're looking for does not exist.</p>
+        <img src="{{ MEDIA_URL }}media/Image_by_ptra_from_Pixabay.jpg" alt="A lost sock" class="error-img">
+        <div class="my-5">
+            <p>Don't worry, You can return to buying cool socks right here</p>
+            <a href="{% url 'products' %}" class="btn btn-back">Keep Socking</a>
+        </div>
+    </div>
+{% endblock %}
