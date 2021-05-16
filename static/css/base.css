@@ -210,8 +210,8 @@ input[name='q']::placeholder {
     min-height: 55vh;
 }
 
-.img-fluid {
-    max-width: 50%;
+.img-cart {
+    max-width: 80%;
 }
 
 .btn-update {
@@ -219,7 +219,7 @@ input[name='q']::placeholder {
 }
 
 .cart-qty {
-    justify-content: center;
+    width: 50%
 }
 
 /* --------------------------- Checkout and forms ------------------ */
