@@ -376,7 +376,9 @@ select option[value=""] {
 
 /* --------------------------- Media Queries ---------------------- */
 
-
+.header-container {
+    background-image: url(media/Image_by_ptra_from_Pixabay.jpg);
+}
 
 /* --------------------------- Media Queries ---------------------- */
 
