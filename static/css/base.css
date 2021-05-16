@@ -374,10 +374,10 @@ select option[value=""] {
     color: #fff;
 }
 
-/* --------------------------- Media Queries ---------------------- */
+/* --------------------------- Error Pages ---------------------- */
 
-.header-container {
-    background-image: url(media/Image_by_ptra_from_Pixabay.jpg);
+.error-img {
+    max-width: 300px;
 }
 
 /* --------------------------- Media Queries ---------------------- */
