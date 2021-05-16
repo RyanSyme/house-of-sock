@@ -210,6 +210,18 @@ input[name='q']::placeholder {
     min-height: 55vh;
 }
 
+.img-fluid {
+    max-width: 50%;
+}
+
+.btn-update {
+    width: 10%;
+}
+
+.cart-qty {
+    justify-content: center;
+}
+
 /* --------------------------- Checkout and forms ------------------ */
 
 select,
@@ -443,9 +455,9 @@ select option[value=""] {
             padding-right: 0px;
      }
 
-    .decrement-qty {
+    /* .decrement-qty {
         margin-left: 1.5rem;
-    }
+    } */
 
     .cart-remove {
         float: none !important;
