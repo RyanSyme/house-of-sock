@@ -13,20 +13,7 @@ def all_products(request):
     """
         View returns all products page
     """
-
-    products_list = Product.objects.all()
-
-    paginator = Paginator(products_list, 10)
-
-    try:
-        page = int(request.GET.get('page', '1'))
-    except:
-        page = 1
-
-    try:
-        products = paginator.page(page)
-    except(EmptyPage, InvalidPage):
-        products = paginator.page(paginator.num_pages)
+    products = Product.objects.all()
 
     query = None
     categories = None
@@ -36,7 +23,8 @@ def all_products(request):
             categories = request.GET['category'].split(",")
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
-
+            
+        # search function
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -45,6 +33,19 @@ def all_products(request):
 
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
+
+    # Pagination
+    paginator = Paginator(products, 12)
+
+    try:
+        page = int(request.GET.get('page', '1'))
+    except page:
+        page = 1
+
+    try:
+        products = paginator.page(page)
+    except(EmptyPage, InvalidPage):
+        products = paginator.page(paginator.num_pages)
 
     context = {
         'products': products,
