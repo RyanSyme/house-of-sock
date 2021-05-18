@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from django.db.models.functions import Lower
+from django.core.paginator import Paginator
 from django.http import HttpResponseRedirect
 
 from .models import Product, Category, Review
@@ -14,7 +14,20 @@ def all_products(request):
         View returns all products page
     """
 
-    products = Product.objects.all()
+    products_list = Product.objects.all()
+
+    paginator = Paginator(products_list, 10)
+
+    try:
+        page = int(request.GET.get('page', '1'))
+    except:
+        page = 1
+
+    try:
+        products = paginator.page(page)
+    except(EmptyPage, InvalidPage):
+        products = paginator.page(paginator.num_pages)
+
     query = None
     categories = None
 
