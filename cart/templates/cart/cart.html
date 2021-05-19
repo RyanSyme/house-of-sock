@@ -9,6 +9,7 @@
     </div>
 </div>
 {% endblock %}
+
 <!-- ---- Shopping cart section ---- -->
 {% block content %}
 <div class="container cart-container">
@@ -19,6 +20,7 @@
             <hr />
         </div>
     </div>
+    <!-- list of items in cart -->
     {% if cart_items %}
     <div class="container lg-screen-container">
         <div class="row">
@@ -86,7 +88,6 @@
                             </div>
                         </div>
                     </form>
-
                 </div>
                 <div class="col-2 py-3">
                     <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
@@ -105,8 +106,7 @@
                 <h4 class="mt-4"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h4>
                 {% if free_delivery_delta > 0 %}
                 <p class="mb-1 text-danger">Just <strong>€{{ free_delivery_delta }}</strong> more to qualify for
-                    <strong>Free
-                        Delivery!</strong></p>
+                    <strong>Free Delivery!</strong></p>
                 {% endif %}
             </div>
         </div>
@@ -126,7 +126,6 @@
                 </a>
             </div>
         </div>
-
     </div>
     {% else %}
     <div class="row">
@@ -139,31 +138,9 @@
     </div>
     {% endif %}
 </div>
-</div>
-</div>
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
-<!-- <script type="text/javascript">
-    // Update quantity on click
-    $(".update-link").click(function (e) {
-        var form = $(this).prev(".update-form");
-        form.submit();
-    });
-
-    // Remove item and reload on click
-    $(".remove-item").click(function (e) {
-        var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr("id").split("remove_")[1];
-        var size = $(this).data("product_size");
-        var url = `/cart/remove/${itemId}/`;
-        var data = { csrfmiddlewaretoken: csrfToken, product_size: size };
-
-        $.post(url, data).done(function () {
-            location.reload();
-        });
-    });
-</script> -->
 {% endblock %}
