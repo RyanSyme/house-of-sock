@@ -12,14 +12,16 @@ import time
 
 # all webhook handlers taken from codeinstitute boutique ado
 class StripeWH_Handler:
-    """Handle Stripe webhooks"""
+    """
+        Handle Stripe webhooks
+    """
 
     def __init__(self, request):
         self.request = request
 
     def _send_confirmation_email(self, order):
         """
-        Send the user a confirmation email
+            Send the user a confirmation email
         """
         customer_email = order.email
         subject = render_to_string(
@@ -36,10 +38,9 @@ class StripeWH_Handler:
             [customer_email]
         )
 
-
     def handle_event(self, event):
         """
-        Handle a generic/unknown/unexpected webhook event
+            Handle a generic/unknown/unexpected webhook event
         """
         return HttpResponse(
             content=f'Unhandled webhook received: {event["type"]}',
@@ -47,7 +48,7 @@ class StripeWH_Handler:
 
     def handle_payment_intent_succeeded(self, event):
         """
-        Handle the payment_intent.succeeded webhook from Stripe
+            Handle the payment_intent.succeeded webhook from Stripe
         """
         intent = event.data.object
         pid = intent.id
@@ -87,8 +88,9 @@ class StripeWH_Handler:
         if order_exists:
             self._send_confirmation_email(order)
             return HttpResponse(
-                content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
-                status=200)
+                    content=f'Webhook received: {event["type"]} | \
+                    SUCCESS: Verified order already in database',
+                    status=200)
         else:
             order = None
             try:
@@ -113,7 +115,8 @@ class StripeWH_Handler:
                         )
                         order_line_item.save()
                     else:
-                        for size, quantity in item_data['items_by_size'].items():
+                        for size, quantity in \
+                                item_data['items_by_size'].items():
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
