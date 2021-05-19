@@ -2,8 +2,6 @@ from django.shortcuts import render
 from django.urls import path
 from products.models import Category, Product
 
-import random
-
 
 def index(request):
     """

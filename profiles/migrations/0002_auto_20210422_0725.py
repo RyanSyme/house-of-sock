@@ -14,16 +14,19 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='userprofile',
             name='default_country',
-            field=django_countries.fields.CountryField(blank=True, max_length=2, null=True),
+            field=django_countries.fields.CountryField(
+                blank=True, max_length=2, null=True),
         ),
         migrations.AlterField(
             model_name='userprofile',
             name='default_street_address1',
-            field=models.CharField(blank=True, max_length=80, null=True),
+            field=models.CharField(
+                blank=True, max_length=80, null=True),
         ),
         migrations.AlterField(
             model_name='userprofile',
             name='default_town_or_city',
-            field=models.CharField(blank=True, max_length=40, null=True),
+            field=models.CharField(
+                blank=True, max_length=40, null=True),
         ),
     ]

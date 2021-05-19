@@ -11,7 +11,7 @@ from checkout.models import Order
 @login_required
 def profile(request):
     """
-    Displays user profile
+        Displays user profile
     """
     profile = get_object_or_404(UserProfile, user=request.user)
 
@@ -19,9 +19,11 @@ def profile(request):
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your Profile has been successfully updated')
+            messages.success(request,
+                             'Your Profile has been successfully updated')
         else:
-            messages.error(request, 'Update failed. Please ensure the form is valid')
+            messages.error(request,
+                           'Update failed. Please ensure the form is valid')
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()

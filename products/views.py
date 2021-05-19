@@ -23,7 +23,7 @@ def all_products(request):
             categories = request.GET['category'].split(",")
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
-            
+
         # search function
         if 'q' in request.GET:
             query = request.GET['q']
@@ -31,7 +31,8 @@ def all_products(request):
                 messages.error(request, "No search criteria entered!!")
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | Q(
+                description__icontains=query)
             products = products.filter(queries)
 
     # Pagination
@@ -67,8 +68,9 @@ def product_detail(request, product_id):
     if request.method == 'POST' and request.user.is_authenticated:
         stars = request.POST.get('stars', '5')
         content = request.POST.get('content', '')
-        
-        review = Review.objects.create(product=product, user=request.user, stars=stars, content=content)
+
+        review = Review.objects.create(product=product, user=request.user,
+                                       stars=stars, content=content)
 
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
@@ -82,10 +84,11 @@ def product_detail(request, product_id):
 @login_required
 def add_product(request):
     """
-    Gives admin ability to add products to the store
+        Gives admin ability to add products to the store
     """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only admin can add products to the store')
+        messages.error(request,
+                       'Sorry, only admin can add products to the store')
         return redirect(reverse('home'))
 
     if request.method == 'POST':
@@ -95,7 +98,8 @@ def add_product(request):
             messages.success(request, 'Successfully added a product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed tp add product. Please check to ensure the form is valid')
+            messages.error(request, 'Failed to add product. \
+                Please check to ensure the form is valid')
     else:
         form = ProductForm()
 
@@ -110,7 +114,7 @@ def add_product(request):
 @login_required
 def edit_product(request, product_id):
     """
-    Gives admin ability to edit products to the store
+        Gives admin ability to edit products to the store
     """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only admin can edit products')
@@ -124,7 +128,8 @@ def edit_product(request, product_id):
             messages.success(request, 'Product successfuly updated!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update product. \
+                Please ensure the form is valid.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -141,10 +146,11 @@ def edit_product(request, product_id):
 @login_required
 def delete_product(request, product_id):
     """
-    view to delete product from store
+        view to delete product from store
     """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only admin can remove products from the store')
+        messages.error(request, 'Sorry, \
+            only admin can remove products from the store')
         return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)

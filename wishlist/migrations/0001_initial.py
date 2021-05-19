@@ -17,17 +17,27 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Wishlist',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='wishlist', to='profiles.userprofile')),
+                ('id', models.AutoField(
+                    auto_created=True, primary_key=True,
+                    serialize=False, verbose_name='ID')),
+                ('user', models.OneToOneField(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    related_name='wishlist', to='profiles.userprofile')),
             ],
         ),
         migrations.CreateModel(
             name='WishlistItem',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(
+                    auto_created=True, primary_key=True,
+                    serialize=False, verbose_name='ID')),
                 ('date_added', models.DateTimeField(auto_now_add=True)),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='wishlist_products', to='products.product')),
-                ('wishlist', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='wishlist_items', to='wishlist.wishlist')),
+                ('product', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    related_name='wishlist_products', to='products.product')),
+                ('wishlist', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    related_name='wishlist_items', to='wishlist.wishlist')),
             ],
         ),
     ]

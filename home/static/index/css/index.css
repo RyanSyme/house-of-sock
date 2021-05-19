@@ -37,9 +37,9 @@
         min-width: 300px;
         min-height: 300px;
     }
-  }
+}
 
-  @media (max-width: 425px) {
+@media (max-width: 425px) {
     .callout-header {
         font-size: 2rem;
     }

@@ -23,6 +23,7 @@
 
         <div class="row">
             <div class="col-12 col-md-6 offset-md-3">
+                <!-- Form for editing product in database -->
                 <form class="form product-form mb-5" method="POST" action="{% url 'edit_product' product.id %}" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}
@@ -44,10 +45,5 @@
 
 {% block postloadjs %}
     {{ block.super }}
-    <script type="text/javascript">
-        $('#new-image').change(function() {
-            var file = $('#new-image')[0].files[0];
-            $('#filename').text(`Image will be set to: ${file.name}`);
-        });
-    </script>
+    {% include 'products/includes/products_script.html' %}
 {% endblock %}
