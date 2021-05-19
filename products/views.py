@@ -67,6 +67,7 @@ def product_detail(request, product_id):
     if request.method == 'POST' and request.user.is_authenticated:
         stars = request.POST.get('stars', '5')
         content = request.POST.get('content', '')
+        
         review = Review.objects.create(product=product, user=request.user, stars=stars, content=content)
 
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
