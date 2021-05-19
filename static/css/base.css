@@ -9,6 +9,7 @@ body {
     color: #300030;
     font-family: 'Noto Serif', serif;
     margin-top: 0px;
+    max-width: 100vw;
 }
 
 header {
@@ -387,6 +388,10 @@ select option[value=""] {
   .container {
     max-width: 90%;
   }
+
+  .lg-screen-container {
+    max-width: 1020px;
+    }
 }
 
 /* fixed top navbar only on medium and up */
