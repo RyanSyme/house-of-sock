@@ -112,7 +112,7 @@
         </div>
     </div>
 </div>
-<div class="row review-section py-4 mt-4">
+<!-- <div class="row review-section py-4 mt-4">
     <div class="col-12 col-md-4 offset-md-2">
         <div class="product-reviews">
             <h2 class="text-uppercase text-center pb-3">Reviews</h2>
@@ -141,7 +141,7 @@
     <div class="col-12 col-md-5 offset-md-1">
         <h2 class="text-uppercase text-center pb-3">Write A Review</h2>
         {% if request.user.is_authenticated %}
-        <form class="review-form" method="POST" action="">
+        <form class="review-form" method="POST" action=".">
             {% csrf_token %}
             <div class="form-group">
                 <textarea class="input review-input" name="content" placeholder="Your review"></textarea>
@@ -164,8 +164,8 @@
         <p>Please sign in to add a review</p>
         {% endif %}
     </div>
-</div>
-<!-- {% include 'products/includes/review.html' %} -->
+</div> -->
+{% include 'products/includes/review.html' %}
 {% endblock %}
 
 {% block postloadjs %}

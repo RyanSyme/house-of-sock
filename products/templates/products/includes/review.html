@@ -2,7 +2,6 @@
     <div class="col-12 col-md-4 offset-md-2">
         <div class="product-reviews">
             <h2 class="text-uppercase text-center pb-3">Reviews</h2>
-            <!-- Displays Reviews -->
             {% for review in product.reviews.all %}
             <hr>
             <div class="single-review">
@@ -12,22 +11,21 @@
                         <small class="ml-auto"><i class="fas fa-clock"></i> {{ review.date_added }}</small>
                     </div>
                     <div class="review-rating pb-4">
-                        <i class="fa fa-star"></i> Rating: {{ review.stars }}
+                        <i class="fa fa-star"></i> Rating: {{ review.stars }} 
                     </div>
-
+                    
                 </div>
                 <div class="review-body">
                     <p>{{ review.content }}</p>
                 </div>
             </div>
             {% empty %}
-            <p>Be first to review these (probably awesome) socks.</p>
+                <p>Be first to review these (probably awesome) socks.</p>
             {% endfor %}
         </div>
     </div>
     <div class="col-12 col-md-5 offset-md-1">
         <h2 class="text-uppercase text-center pb-3">Write A Review</h2>
-        <!-- Form to add review to product -->
         {% if request.user.is_authenticated %}
         <form class="review-form" method="POST" action=".">
             {% csrf_token %}
@@ -49,7 +47,7 @@
             <button class="btn btn-main">Submit</button>
         </form>
         {% else %}
-        <p>Please sign in to add a review</p>
+            <p>Please sign in to add a review</p>
         {% endif %}
     </div>
 </div>
