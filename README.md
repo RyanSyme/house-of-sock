@@ -256,68 +256,147 @@ The Google font Rock Salt had been used as the logo font and is used for most of
 ## **Information Architecture**
 
 A relational database was used to store the data. The developmental database used was [SQLite](https://www.sqlite.org/index.html), and the deployed database used was
-[Heroku](https://www.heroku.com/postgres). The use of a relational database allowed me to connect data stored in separate models through the use of foreign keys.
+[Heroku](https://www.heroku.com/postgres). The use of a relational database allowed me to connect data stored in separate models through the use of foreign keys and onetoone fields.
 
+### Structure
 The models created for this website are as follows:
 
-Order Model:
-    order_number = models.CharField(max_length=32, null=False, editable=False)
-    user_profile = models.ForeignKey(UserProfile,
-                                     on_delete=models.SET_NULL, null=True,
-                                     blank=True, related_name='orders')
-    full_name = models.CharField(max_length=50, null=False, blank=False)
-    email = models.EmailField(max_length=254, null=False, blank=False)
-    country = CountryField(blank_label="Country *", null=False, blank=False)
-    postcode = models.CharField(max_length=20, null=True, blank=True)
-    town_or_city = models.CharField(max_length=40, null=False, blank=False)
-    street_address1 = models.CharField(max_length=80, null=False, blank=False)
-    street_address2 = models.CharField(max_length=80, null=True, blank=True)
-    date = models.DateTimeField(auto_now_add=True)
-    delivery_cost = models.DecimalField(max_digits=6, decimal_places=2,
-                                        null=False, default=0)
-    order_total = models.DecimalField(max_digits=10, decimal_places=2,
-                                      null=False, default=0)
-    grand_total = models.DecimalField(max_digits=10, decimal_places=2,
-                                      null=False, default=0)
-    original_cart = models.TextField(null=False, blank=False, default='')
-    stripe_pid = models.CharField(max_length=254, null=False,
-                                  blank=False, default='')
+Order Model - Stores information on each order.
 
-<!-- The following technologies were used to create this website:- -->
+| Key | Model Type | Purpose |
+| ---- | ----- | --------------- |
+| order_number | CharField | The order number for this order. Uniquely identifies the order. |
+| user_profile | ForeignKey | Foreign key used to identify the user that this order belongs to. |
+| full_name | CharField | The users name. Used for billing and delivery. |
+| email | EmailField | The users email. Used to send the user a copy of their order. |
+| country | CountryField | The users country. Used for billing and delivery. |
+| postcode | CharField | The users postcode. Used for billing and delivery. |
+| town_or_city | CharField | The users town or city. Used for billing and delivery. |
+| street_address1 | CharField | The users street address. Used as billing and delivery. |
+| street_address2 | CharField | The users street address (secondary line if needed). Used as billing and delivery. |
+| date | DateTimeField | The date and time the order was placed. |
+| delivery_cost | DecimalField | The of cost delivery for the order. |
+| order_total | DecimalField | The sub-total of the order. |
+| grand_total | DecimalField | The grand_total of the order including delivery cost. |
+| original_cart | TextField | A copy of the users ordered products. |
+| stripe_pid | CharField | The users stripe payment intent id. |
 
-<!-- ### **Languages** -->
+OrderLineItem Model:
+Stores the products that the user has ordered and is attached to their order in the Order model.
 
-<!-- *	**HTML5**
+| Key | Model Type | Purpose |
+| ---- | ----- | --------------- |
+| order | ForeignKey | Foreign key attached to the Order model. Identifies which order it belongs to. |
+| product | ForeignKey | Foreign key attached to the Product model. Identifies product ordered. |
+| product_size | CharField | The products size. |
+| quantity | IntegerField | The quantity of the product ordered. |
+| lineitem_total | DecimalField | The total of quantity * product price |
+
+Category Model:
+Stores information on which category the product belongs to.
+
+| Key | Model Type | Purpose |
+| ---- | ----- | --------------- |
+| name | CharField | The name of the product |
+| friendly_name | CharField | a simplifed name to make it user friendly. |
+
+
+Product Model:
+Stores information on products sold on the website.
+
+| Key | Model Type | Purpose |
+| ---- | ----- | --------------- |
+| category | ForeignKey | Identifies a category the product belongs to. |
+| sku | CharField | Unique identifier for each product. |
+| name | CharField | The products name. Used for queries and display purposes. |
+| description | TextField | A description of the product. Used for queries and display purposes. |
+| size | BooleanField | The products size. |
+| price | DecimalField | The price of the product. Displayed as content. |
+| ---- | ----- | --------------- |
+| rating | DecimalField | The products customer rating. Displayed as content. |
+| ---- | ----- | --------------- |
+| image | ImageField | This is an image of the product. Displayed as content. |
+| image_url | URLField | The image url for the product. Displayed as content. |
+
+Review Model:
+Stores information from user reviews
+
+| Key | Model Type | Purpose |
+| ---- | ----- | --------------- |
+| product | ForeignKey | Foreign key attached to the Product model. Identifies product being reviewed. |
+| user | ForeignKey | Foreign key attached to the user model. Identifies user creating the review. |
+| content | TextField | The content added by the user for the review. Displayed as content. |
+| stars | IntegerField | The rating this user is giving the product. Displayed as content. |
+| date_added | DateTimeField | The date and time the review was added. Displayed as content. |
+
+UserProfile Model:
+A user profile model for maintaining delivery information and order history
+
+| Key | Model Type | Purpose |
+| ---- | ----- | --------------- |
+| user | OneToOneField | A OneToOne Field that identifies the User that the default information belongs to. |
+| default_street_address1 | CharField | The users street_address1. For auto filling the checkout form on the users next checkout. |
+| default_street_address2 | CharField | The users street_address2 (if applicable). For auto filling the checkout form on the users next checkout. |
+| default_postcode | CharField | The users postcode. For auto filling the checkout form on the users next checkout. |
+| default_town_or_city | CharField | The users town or city. For auto filling the checkout form on the users next checkout. |
+| default_country | CountryField | The users country. For auto filling the checkout form on the users next checkout. |
+
+Wishlist Model:
+A model to link a user to bookmarked product
+
+| Key | Model Type | Purpose |
+| ---- | ----- | --------------- |
+| user | OneToOneField | A OneToOne Field that identifies the User that the wishlist belongs to. |
+    
+WishlistItem Model:
+bookmarks products to the wishlist
+
+| Key | Model Type | Purpose |
+| ---- | ----- | --------------- |
+| wishlist | ForeignKey | A Foreign Key that retrevieves the User that the wishlist belongs to. |
+| product | ForeignKey | Foreign key attached to the Product model. Identifies product being added to the wishlist. |
+
+Allauth User Model:
+Stores the users registration information. A default model installed from django.
+
+#### Relationship
+- The relationship between the models are displayed here
+
+    <!-- make data-schema and post it here!!!! -->
+
+The following technologies were used to create this website:-
+
+### **Languages**
+
+*	**HTML5**
 
 *   **CSS3** 
 *	**JavaScript**
+*	[Python](https://www.python.org/)
 
-    have been used throughout the project to create the text, style and functionality of the website.
+### **Frameworks and Libraries**
 
-*	[Python](https://www.python.org/) has been used to run the application -->
-
-<!-- ### **Frameworks and Libraries** -->
-
-<!-- *   [Jquery]( https://jquery.com/) were used to implement the carousel function on the image carousel section and to simplify DOM manipulation
-
-*	[MongoDB](https://www.mongodb.com/) has been used to to store the database
-*	[Flask](https://flask.palletsprojects.com/en/1.1.x/) has been used to to dynamically generate pages, links, and content within the app
-*	[PyMongo](https://pypi.org/project/pymongo/) has been used to connect to and transfer data to MongoDB
-*	[Jinja](https://jinja.palletsprojects.com/en/2.11.x/) has been used to template the website
 *	[Bootstrap]( https://getbootstrap.com/) was used for layout aesthetics, including grid styling and device responsiveness
+
+*   [Jquery]( https://jquery.com/) Used in stripe javascript logic
+*	[Django](https://www.djangoproject.com/) has been used as the main framework to build the project.
+*	[Stripe](https://stripe.com) - used to facilitate payments.
+*	[Psycopg2](https://pypi.org/project/psycopg2/)  has been used to allow postgresSQL to be used with python
+*   [Heroku](https://www.heroku.com/) - Used to deploy the live website.
 *	[GitHub]( https://github.com/) was used to host the website
-*	[Gitpod]( https://www.gitpod.io/) was used to code the website -->
+*	[Gitpod]( https://www.gitpod.io/) was used to code the website
 
-<!-- ### **Software and Resources** -->
+### **Software and Resources**
 
-<!-- *	[FontAwesome](https://fontawesome.com/) was used to add icons to the exercise class headers
+*	[FontAwesome](https://fontawesome.com/) was used to add icons to the exercise class headers
 
 *	[Gimp]( https://www.gimp.org/) was used to size the images
 *	[Balsamiq]( https://balsamiq.com/) was used to create the wireframes of the project
 *   [FireShot](https://getfireshot.com/) was used to create the screenshots for the README
 *   [Techsini](https://techsini.com/multi-mockup/) was used to style the multi screen mockup
 *   [Coolors](https://coolors.co/) was used to create the color palette screenshot
-*   [User-Agent Switcher](https://chrome.google.com/webstore/detail/user-agent-switcher-for-c/djflhoibgkdhkhhcedjiklpkjnoahfmg) was used for testing functionality on different browsers -->
+*   [User-Agent Switcher](https://chrome.google.com/webstore/detail/user-agent-switcher-for-c/djflhoibgkdhkhhcedjiklpkjnoahfmg) was used for testing functionality on different browsers
+*   [Gmail](https://mail.google.com/) - Used to send emails.
 
 ---
 
@@ -375,44 +454,44 @@ Order Model:
 * *As a Returning Visitor*, I want to be able to log out of the site.
     *   There is a log out button on the sticky nav that can be used on any page of the site. -->
 
-<!-- ### **Code Validation** -->
+### **Code Validation**
 
-<!-- #### *W3 Validators* -->
+#### *W3 Validators*
 
-<!-- *    The HTML was Validated at [W3C Markup Validation Service](https://validator.w3.org/). 
+*    The HTML was Validated at [W3C Markup Validation Service](https://validator.w3.org/). 
 
 *    The CSS was Validated at [W3C CSS Validation Service](http://jigsaw.w3.org/css-validator/).
 
-*   The Python was Validated at [pep8online](http://pep8online.com/) -->
+*   The Python was Validated at [pep8online](http://pep8online.com/)
 
-<!-- ### **Manual Testing** -->
+### **Manual Testing**
 
-<!-- #### *Google Developer Tools* -->
+#### *Google Developer Tools*
 
-   <!-- *    The websites design responsiveness has been tested on all device sizes using Google Developer Tools. -->
+   *    The websites design responsiveness has been tested on all device sizes using Google Developer Tools.
 
-<!-- #### *Testing On Mobile Devices*
+#### *Testing On Mobile Devices*
    *    Apple iOS
    *    Google Android 7
    *    Microsoft Windows Phone
    *    Samsung Tizen OS
    *    Nokia Symbian
-   *    Mozilla Firefox OS -->
+   *    Mozilla Firefox OS
  
-<!-- #### *Testing On Browsers*
+#### *Testing On Browsers*
    *    Google Chrome
    *    Opera
    *    Firefox
    *    Apple Safari
    *    Microsoft Explorer
-   *    Microsoft Edge -->
+   *    Microsoft Edge
     
-<!-- #### *Testing On Operating Systems*
+#### *Testing On Operating Systems*
    *    Microsoft Windows
    *    Linux
    *    Apple Mac OS
    *    Google Chrome OS
-   *    IBM Warp -->
+   *    IBM Warp
 
 <!-- ### **Defensive Design Testing** -->
 
@@ -496,11 +575,11 @@ Order Model:
 
 ---
 
-<!-- ## **Deployment** -->
+## **Deployment**
 
-<!-- ### **Remote Deployment**
-1. Navigate to the GitHub [Repository:](https://github.com/RyanSyme/url-of-sandwich)
-2. Open [repository](https://github.com/RyanSyme/url-of-sandwich) using [GitPod](https://www.gitpod.io/) IDE.
+### **Remote Deployment**
+<!-- 1. Navigate to the GitHub [Repository:](https://github.com/RyanSyme/url-of-sandwich) -->
+<!-- 2. Open [repository](https://github.com/RyanSyme/url-of-sandwich) using [GitPod](https://www.gitpod.io/) IDE. -->
 3. In terminal run "pip3 freeze --local > requirements.txt" command to create a .txt file with all of the dependencies used that [Heroku](https://www.heroku.com) needs to know what dependencies app uses.
 4. In the terminal run the "echo web: python app.py > Procfile" command to create Procfile that [Heroku](https://www.heroku.com) needs to know what file runs the app.
 5. Go to [Heroku](https://www.heroku.com) and log in.
@@ -519,16 +598,79 @@ Order Model:
 18. Return to Heroku and click on "Enable Automatic Deployment".
 19. Select your branch. Branch selected (master).
 20. Click "Deploy Branch"
-21. Once deployment is finished click "View" to launch the new app. -->
+21. Once deployment is finished click "View" to launch the new app.
 
 
-<!-- ### **Local Deployment**
-1. Navigate to the GitHub [Repository:](https://github.com/RyanSyme/url-of-sandwich)
-2. Click the **Code** drop down menu.
-3. Download the ZIP file and unpack locally
-4. Open a code editor of your choice and open the unzipped file using the code editor.
-5. Click **Save** and save to your local device
-6. In order to have a functional app, you will have to create your own MongoDB collection and inserted your "MONGO_URI" and not the one used in the project. -->
+### **Local Deployment**
+### Pre-requisites
+- [Python 3](https://www.python.org/downloads/) - used to write the code and to run the project
+- [PIP](https://pypi.org/project/pip/) - used to install packages
+- [Git](https://git-scm.com/downloads) - used for version control
+- [Visual Studio Code](https://code.visualstudio.com/) or any IDE of your choice - used to compile the code.
+- [Stripe](https://stripe.com/en-ie) Account
+
+#### Recommended
+- A virtual environment of your choice - used to contain all installations and packages and prevents clashing projects that might use the same package but different versions.
+    - Python 3 has a built-in virtual environment [venv](https://docs.python.org/3/tutorial/venv.html). The commands might differ depending on your Operating System, it is advised to read the docs to ensure accuracy. To initialize on MacOS:
+
+            python3 -m venv .venv
+        where `.venv` is the name/path you are giving to the virtual environment
+
+### Steps
+<!-- 1. Go to the project [repository](https://github.com/LigaMoon/Prickly) -->
+1. Download the files used by clicking the 'Code' button located at the top of the repository, select 'Download ZIP' and unzip the files in the directory of your choice.
+    
+1. In your IDE, navigate to the project directory where you downloaded files in the repo
+
+1. Activate your virtual environment.
+
+1. Install all requirements from [requirements.txt](requrements.txt) file using:
+    pip3 install -r requirements.txt
+
+<!-- 1. Create a file `env.py` to store environment variables
+1. Add environment variable in the format as shown below and also demonstrated in the [sample_env.py](sample_env.py) file
+
+        os.environ.setdefault('SECRET_KEY', '<your-variable-goes-here>')
+        os.environ.setdefault('DEVELOPMENT', '1')
+        os.environ.setdefault('ALLOWED_HOSTS', '<your-variable-goes-here>')
+        os.environ.setdefault('STRIPE_PUBLIC_KEY', '<your-variable-goes-here>')
+        os.environ.setdefault('STRIPE_SECRET_KEY', '<your-variable-goes-here>')
+        os.environ.setdefault('STRIPE_WH_SECRET_CH', '<your-variable-goes-here>')
+        os.environ.setdefault('STRIPE_WH_SECRET_SUB', '<your-variable-goes-here>')
+    where 
+    -  `SECRET_KEY` value is a key of your choice, to ensure appropriate seccurity measures, this can be generated using [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/)
+    -  `DEVELOPMENT` is set to `1` and is ised in settings.py logic to ensure file is dynamic between local and remote setups
+    - `STRIPE_PUBLIC_KEY` and `STRIPE_SECRET_KEY` values are obatined from the [Stripe](https://stripe.com/en-ie) website
+                <details>
+                        <summary>How to get Stripe API values</summary>
+                        <ul>
+                            <li>Once logged in, you will be redirected to the **Overview** page, if not, navigate there by clicking **Overview** on the left hand side
+                            </li>
+                                <img src="./readme_docs/stripe-overview.png" height="200px">
+                            <li>Get the API values by clicking on **Get your test API keys** as shown in the image above</li>
+                            <li>Add Publishable key as `STRIPE_PUBLIC_KEY` and Secret key as `STRIPE_SECRET_KEY` environmental variable values</li>
+                        </ul>
+                </details>
+    - `STRIPE_WH_SECRET` value is obtained from the [Stripe](https://stripe.com/en-ie) website in conjunction of using [ngrok](https://ngrok.com) to host the server
+                    <details>
+                        <summary>Getting Webhooks API value</summary>
+                        <ul>
+                            <li>Set up ngrok to generate a tunnel on your localhost port to use in Stripe webhooks later. Read on [ngrok](nhrok.com/downloads) website downloads page to learn how.</li>
+                            <li>Go to your [stripe dashboard](dashboard.stripe.com) and naviagte to **Developers** > **Webhooks**
+                            </li>
+                            <li>Click **Add endpoint** and enter your ngrok link followed by `/checkout/wh/` as shown in the image below</li>
+                                <img src="./readme_docs/stripe-endpoint.png" height="400px">
+                            <li>Click on **recieve all events** and then Add endpoint to finish the setup</li>
+                            <li>To get the `STRIPE_WH_SECRET` value, click on the added link under Endpoints and copy the Signing secret key in your variable</li>
+                        </ul>
+                </details>
+    - `ALLOWED_HOSTS` this should be set to your ngrok url
+1. Run the application
+
+        python3 manage.py runserver
+
+1. Website should be available on a link similar to `http://127.0.0.1:8000`. (check your IDE terminal)
+1. Note: `python3` and `pip3` commands can vary depending on version/machine/IDE you're using. Always check docs if unsure. -->
 
 ---
 
