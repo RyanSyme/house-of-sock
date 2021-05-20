@@ -227,28 +227,63 @@ The Google font Rock Salt had been used as the logo font and is used for most of
 
 #### Checkout Page
 
+*   Displays an order summary with images
+*   Displays a deliver details form with any known information already on the form
+*   Allows payment for the order via Stripe or the user can return to their shopping cart to make any changes they wish
+
 #### Checkout Success Page
 
 *   Shows the customers order number, date of order, order details, delivery and billing info
 *   Confirms that an email has been sent to the user about their purchase
 *   Has a button that returns the user either to the products page or their profile page depending on from where they accessed the page
 
+#### Wishlist Page
 
-<!-- ### **Features Left to Implement** -->
+*   Displays any products that the user has placed on their wishlist
+*   From the wishist page the user can either view the product detail page of any product on their wishlist or return to the product page via a Keep Socking button
+*   User has the ability to delete products from the wishlist
+
+
+### **Features Left to Implement**
 
 <!-- * A 'like' or grading feature that allows user to rate other users sandwiches
 
-* The option to have more than one admin.
-* The ability for the user to change password
-* A 'Favourite section showing the users person favourites. 
 * Some defensive programing to ask a user if they are sure that they want to delete a sandwich or not once the delete button has been pressed
     * This would also be needed for the admin page on the delete category button -->
 
 ---
 
-<!-- ## **Technologies Used** -->
+## **Information Architecture**
 
-<!-- All of the following technologies were used to create this website:- -->
+A relational database was used to store the data. The developmental database used was [SQLite](https://www.sqlite.org/index.html), and the deployed database used was
+[Heroku](https://www.heroku.com/postgres). The use of a relational database allowed me to connect data stored in separate models through the use of foreign keys.
+
+The models created for this website are as follows:
+
+Order Model:
+    order_number = models.CharField(max_length=32, null=False, editable=False)
+    user_profile = models.ForeignKey(UserProfile,
+                                     on_delete=models.SET_NULL, null=True,
+                                     blank=True, related_name='orders')
+    full_name = models.CharField(max_length=50, null=False, blank=False)
+    email = models.EmailField(max_length=254, null=False, blank=False)
+    country = CountryField(blank_label="Country *", null=False, blank=False)
+    postcode = models.CharField(max_length=20, null=True, blank=True)
+    town_or_city = models.CharField(max_length=40, null=False, blank=False)
+    street_address1 = models.CharField(max_length=80, null=False, blank=False)
+    street_address2 = models.CharField(max_length=80, null=True, blank=True)
+    date = models.DateTimeField(auto_now_add=True)
+    delivery_cost = models.DecimalField(max_digits=6, decimal_places=2,
+                                        null=False, default=0)
+    order_total = models.DecimalField(max_digits=10, decimal_places=2,
+                                      null=False, default=0)
+    grand_total = models.DecimalField(max_digits=10, decimal_places=2,
+                                      null=False, default=0)
+    original_cart = models.TextField(null=False, blank=False, default='')
+    stripe_pid = models.CharField(max_length=254, null=False,
+                                  blank=False, default='')
+
+<!-- The following technologies were used to create this website:- -->
 
 <!-- ### **Languages** -->
 
