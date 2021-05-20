@@ -577,10 +577,10 @@ The following technologies were used to create this website:-
 
 ## **Deployment**
 
-### **Remote Deployment**
+<!-- ### **Remote Deployment** -->
 <!-- 1. Navigate to the GitHub [Repository:](https://github.com/RyanSyme/url-of-sandwich) -->
 <!-- 2. Open [repository](https://github.com/RyanSyme/url-of-sandwich) using [GitPod](https://www.gitpod.io/) IDE. -->
-3. In terminal run "pip3 freeze --local > requirements.txt" command to create a .txt file with all of the dependencies used that [Heroku](https://www.heroku.com) needs to know what dependencies app uses.
+<!-- 3. In terminal run "pip3 freeze --local > requirements.txt" command to create a .txt file with all of the dependencies used that [Heroku](https://www.heroku.com) needs to know what dependencies app uses.
 4. In the terminal run the "echo web: python app.py > Procfile" command to create Procfile that [Heroku](https://www.heroku.com) needs to know what file runs the app.
 5. Go to [Heroku](https://www.heroku.com) and log in.
 6. Once logged in, and in your dashboard, click on "Create New App".
@@ -598,7 +598,7 @@ The following technologies were used to create this website:-
 18. Return to Heroku and click on "Enable Automatic Deployment".
 19. Select your branch. Branch selected (master).
 20. Click "Deploy Branch"
-21. Once deployment is finished click "View" to launch the new app.
+21. Once deployment is finished click "View" to launch the new app. -->
 
 
 ### **Local Deployment**
