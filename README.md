@@ -400,181 +400,11 @@ The following technologies were used to create this website:-
 
 ---
 
-<!-- ## **Testing** -->
+## **Testing**
 
-<!-- ### **Testing User Stories from the UX Section** -->
-
-
-<!-- **First Time Visitor Goals** -->
-
-<!-- * *As a First Time Visitor*, I want to be able to navigate the website simply and easily.
-    *   On opening the website the visitor is met with the callout section which has a button connecting to the sign up page and a sticky nav directing the user to relevant pages
-
-* *As a First Time Visitor*, I want to access the site across all devices.
-    *	The website is responsive across all devices
-    
-* *As a First Time Visitor*, I want to see other users creations.
-    *	The nav has a sandwiches button that links to a page that show all of the sandwiches in the database.
-
-* *As a First Time Visitor*, I want a way to search other users creations.
-    *	The sandwiches page has a prominent search bar that allows the user to search through the the sandwiches by ingredient.
-
-* *As a First Time Visitor*, I want to be able to sign up as a user.
-    *   There is a sign up link in the nav and also a button under the callout guiding the user to the sign up page.
-    *   The user only need to provide a user name email and password to sign up.
-
-* *As a First Time Visitor*, I want to add my own creations.
-    *   Any member can add a sandwich to the database via the 'add sandwich' page.
-    *   The user can add any type of sandwich they wish and can add an image if they wish. If they choose not to add an image, one is added for them automatically.
-
-* *As a First Time Visitor*, I want a page where I can see my own creations.
-    *   A signed in user can view all of their own sandwich creations on their profile page. -->
-
-<!-- **Returning Visitor Goals** -->
-
-<!-- * *As a Returning Visitor*, I want to be able to inspect and edit my own creations.
-    *   On the profile page, the user can edit or remove any of their own creation if they so choose.
-    *   The user can also edit or remove their sandwiches from the view sandwich page.
-
-* *As a Returning Visitor*, I want other users to view my creations but not edit them.
-    *	Users can view any sandwich in the database via the sandwiches page and see them in more detail on the view sandwich page.
-    *   No user can edit or delete another users sandwiches
-
-* *As a Returning Visitor*, I want to easily navigate to the log in page to view my profile
-    *	The sticky nav has a link to the login page
-    *   Once logged in a user is directed to their profile page
-
-* *As a Returning Visitor*, I want to view all of the sandwiches I have added to the site
-    *   The users profile page displays a collection of all of their own sandwiches
-
-* *As a Returning Visitor*, I want to be able to delete any of my own creations I no longer want.
-    *   The user can edit or delete any of their own creations at any point as long as they are signed in
-    *   Users can only edit or delete sandwiches that they have created.
-
-* *As a Returning Visitor*, I want to be able to log out of the site.
-    *   There is a log out button on the sticky nav that can be used on any page of the site. -->
-
-### **Code Validation**
-
-#### *W3 Validators*
-
-*    The HTML was Validated at [W3C Markup Validation Service](https://validator.w3.org/). 
-
-*    The CSS was Validated at [W3C CSS Validation Service](http://jigsaw.w3.org/css-validator/).
-
-*   The Python was Validated at [pep8online](http://pep8online.com/)
-
-### **Manual Testing**
-
-#### *Google Developer Tools*
-
-   *    The websites design responsiveness has been tested on all device sizes using Google Developer Tools.
-
-#### *Testing On Mobile Devices*
-   *    Apple iOS
-   *    Google Android 7
-   *    Microsoft Windows Phone
-   *    Samsung Tizen OS
-   *    Nokia Symbian
-   *    Mozilla Firefox OS
- 
-#### *Testing On Browsers*
-   *    Google Chrome
-   *    Opera
-   *    Firefox
-   *    Apple Safari
-   *    Microsoft Explorer
-   *    Microsoft Edge
-    
-#### *Testing On Operating Systems*
-   *    Microsoft Windows
-   *    Linux
-   *    Apple Mac OS
-   *    Google Chrome OS
-   *    IBM Warp
-
-<!-- ### **Defensive Design Testing** -->
-
-<!-- #### Index page -->
-
-<!-- *   Test all links and buttons on Index page:
-    *   All Navbar buttons link to the page expected
-    *   All footer links to social media function as expected
-    *   Buttons on the "latest sandwiches cards direct to expected sandwich pages
-    *   "Get Started" button appears and directs user to Sign Up page if not already signed in -->
-
-<!-- #### Sign Up page -->
-
-<!-- *   Test Sign Up form:
-    *   User cannot create an account without entering a username with less than 5 characters
-    *   Email Address must have an @ symbol
-    *   Password must be letters and/or numbers and must be between 5-15 characters long
-        *   If any of these points fail a message appears informing the user what is needed
-    *   The link switching the user from login to sign up at the bottom of the form functions correctly -->
-
-<!-- #### Login page -->
-
-<!-- *   Test Login functionality:
-    *   User must enter a correct username already on the system
-    *   User must enter the correlating password already on the system
-        *   If either of these points are not achieved a "incorrect/username or password" message flashes
-    *   The link switching the user from login to sign up at the bottom of the form functions correctly -->
-
-<!-- #### Profile page -->
-
-<!-- *   Test buttons and links:
-    *   Once signed in the customer recieves a welcome message with their username so they are aware that they have been signed in
-    *   The Added Sandwich button takes the user to the Add Sandwich form
-    *   The Edit Sandwich button takes the user to the Edit Sandwich form
-    *   The Delete Sandwich button removes the sandwich -->
-
-<!-- #### Add Sandwich page -->
-
-<!-- *   Test Add Sandwich form works:
-    *   The sandwich name must be between 3-50 characters
-    *   The sandwich must have a description
-    *   A category and prep time must be selected
-    *   The form needs at least one ingredient and one instruction
-    *   If no Image url is added or is added incorrectly, a default image is used
-    *   Once a sandwich is created the user is directed to the sandwiches page -->
-
-<!-- #### Edit Sandich page -->
-
-<!-- *   Test Edit Sandwich Form:
-    *   All original content is placed on the form
-    *   Changes can be made to any input as long as the edit complies with the same rule-sets as before
-    *   Save changes button saves the new information and directs the customer to the sandwiches page
-    *   Cancel edit makes no changes and directs the user to the sandwiches page -->
-
-<!-- #### Logout Buttons -->
-
-<!-- *   Test Logout Button:
-    *   Pressing the logout button logs out the user and returns them to the login page -->
-
-<!-- ### Admin Testing -->
-
-<!-- #### Admin Profile page -->
-
-<!-- *   Test Admin Profile Page:
-    *   When signed in as admin, the profile page show an Edit Categories button
-    *   The Edit Categories button takes the admin to the Edit Categories page
-
-*   Test Edit Categories Page:
-    *   The Add Category button takes to the Add Category page, where the admin can add a new category using the single input form
-    *   The Edit Category button takes to the Edit Category page, where the admin can edit the name of the category using the single input form
-    *   The Edit Category form has a CAncel button that stops the edit and returns the admin to the categories page
-    *   The Remove Category button removes the category from the database -->
-    
-<!-- #### *Issues Found* -->
-
-<!-- *   An issue was found with the carousel and callout text being on the same line on different device sizes, the resizing would make the text too large and the carousel too small.
-    *   The issue was resolved with some changes to the css in the media queries and by using the bootstrap grid system.
-
-*   Originally the minimum number of letters for the sandwich names was set at 5. It became apparent early on that this was an error as one of the worlds most famous sandwiches is a 3 letter Acronym "BLT"
-    *   The minimum letter count on the sandwich name input was changed to 3. -->
+All testing has been documented in [TESTING.md](TESTING.MD) file
 
 ---
-
 ## **Deployment**
 
 <!-- ### **Remote Deployment** -->
@@ -639,27 +469,25 @@ The following technologies were used to create this website:-
     -  To ensure appropriate security measures a `SECRET_KEY` can be randomly generated using [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/) or a similar website.
 
 -  `DEVELOPMENT` should be set to `1` and is entered into `settings.py` logic to ensure file is dynamic between local and remote setups
-    - `STRIPE_PUBLIC_KEY` and `STRIPE_SECRET_KEY` values are obatined from the [Stripe](https://dashboard.stripe.com/register) website
-                <details>
-                        <summary>How to get Stripe API values</summary>
-                        <ul>
-                            <li>Once logged in, you will be redirected to the **Overview** page
-                            </li>
-                            <li>Get the API values by clicking on **Get your test API keys**</li>
-                            <li>Add Publishable key as `STRIPE_PUBLIC_KEY` and Secret key as `STRIPE_SECRET_KEY` environmental variable values</li>
-                        </ul>
-                </details>
-    - `STRIPE_WH_SECRET` value is obtained from the [Stripe](https://dashboard.stripe.com/register) website in the developers area
-                    <details>
-                        <summary>Getting Webhooks API value</summary>
-                        <ul>
-                            <li>Go to your [stripe dashboard](dashboard.stripe.com) and naviagte to **Developers** > **Webhooks**
-                            </li>
-                            <li>Click **Add endpoint** and enter your site address followed by `/checkout/wh/`</li>
-                            <li>Click on **recieve all events** and then Add endpoint to finish the setup</li>
-                            <li>To get the `STRIPE_WH_SECRET` value, click on the added link under Endpoints and copy the Signing secret key in your variable</li>
-                        </ul>
-                </details>
+- `STRIPE_PUBLIC_KEY` and `STRIPE_SECRET_KEY` values are obatined from the [Stripe](https://dashboard.stripe.com/register) website
+        <details>
+            <summary>How to retreive Stripe API values</summary>
+            <ul>
+                <li>Once logged in, you will be redirected to the **Overview** page</li>
+                <li>Get the API values by clicking on **Get your test API keys**</li>
+                <li>Add Publishable key as `STRIPE_PUBLIC_KEY` and Secret key as `STRIPE_SECRET_KEY` environmental variable values</li>
+            </ul>
+        </details>
+- `STRIPE_WH_SECRET` value is obtained from the [Stripe](https://dashboard.stripe.com/register) website in the developers area
+        <details>
+            <summary>How to retreive Webhooks API value</summary>
+            <ul>
+                <li>Go to your [stripe dashboard](dashboard.stripe.com) and naviagte to **Developers** > **Webhooks**</li>
+                <li>Click **Add endpoint** and enter your site address followed by `/checkout/wh/`</li>
+                <li>Click on **recieve all events** and then Add endpoint to finish the setup</li>
+                <li>To get the `STRIPE_WH_SECRET` value, click on the added link under Endpoints and copy the Signing secret key in your variable</li>
+            </ul>
+    </details>
 
 1. Run the application using - *python3 manage.py runserver*
 
