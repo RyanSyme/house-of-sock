@@ -609,97 +609,80 @@ The following technologies were used to create this website:-
 - [Visual Studio Code](https://code.visualstudio.com/) or any IDE of your choice - used to compile the code.
 - [Stripe](https://stripe.com/en-ie) Account
 
-#### Recommended
-- A virtual environment of your choice - used to contain all installations and packages and prevents clashing projects that might use the same package but different versions.
-    - Python 3 has a built-in virtual environment [venv](https://docs.python.org/3/tutorial/venv.html). The commands might differ depending on your Operating System, it is advised to read the docs to ensure accuracy. To initialize on MacOS:
-
-            python3 -m venv .venv
-        where `.venv` is the name/path you are giving to the virtual environment
 
 ### Steps
-<!-- 1. Go to the project [repository](https://github.com/LigaMoon/Prickly) -->
-1. Download the files used by clicking the 'Code' button located at the top of the repository, select 'Download ZIP' and unzip the files in the directory of your choice.
+
+1. Navigate to the project [repository](https://github.com/RyanSyme/house-of-sock)
+
+1. Download the files by clicking the 'Code' button located at the top of the repository, select 'Download ZIP' and unzip the files to the directory of your choice.
     
 1. In your IDE, navigate to the project directory where you downloaded files in the repo
 
 1. Activate your virtual environment.
 
-1. Install all requirements from [requirements.txt](requrements.txt) file using:
-    pip3 install -r requirements.txt
+1. Install all the necassary requirements from [requirements.txt](requrements.txt) using in the cli:
 
-<!-- 1. Create a file `env.py` to store environment variables
-1. Add environment variable in the format as shown below and also demonstrated in the [sample_env.py](sample_env.py) file
+    *pip3 install -r requirements.txt*
 
-        os.environ.setdefault('SECRET_KEY', '<your-variable-goes-here>')
+1. Create a`env.py` file for storing the enviromental variables
+
+1. Add environment variable in the format as shown below:
+
+        os.environ.setdefault('SECRET_KEY', '<enviroment-variable-here>')
         os.environ.setdefault('DEVELOPMENT', '1')
-        os.environ.setdefault('ALLOWED_HOSTS', '<your-variable-goes-here>')
-        os.environ.setdefault('STRIPE_PUBLIC_KEY', '<your-variable-goes-here>')
-        os.environ.setdefault('STRIPE_SECRET_KEY', '<your-variable-goes-here>')
-        os.environ.setdefault('STRIPE_WH_SECRET_CH', '<your-variable-goes-here>')
-        os.environ.setdefault('STRIPE_WH_SECRET_SUB', '<your-variable-goes-here>')
-    where 
-    -  `SECRET_KEY` value is a key of your choice, to ensure appropriate seccurity measures, this can be generated using [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/)
-    -  `DEVELOPMENT` is set to `1` and is ised in settings.py logic to ensure file is dynamic between local and remote setups
-    - `STRIPE_PUBLIC_KEY` and `STRIPE_SECRET_KEY` values are obatined from the [Stripe](https://stripe.com/en-ie) website
+        os.environ.setdefault('ALLOWED_HOSTS', '<enviroment-variable-here>')
+        os.environ.setdefault('STRIPE_PUBLIC_KEY', '<enviroment-variable-here>')
+        os.environ.setdefault('STRIPE_SECRET_KEY', '<enviroment-variable-here>')
+        os.environ.setdefault('STRIPE_WH_SECRET_CH', '<enviroment-variable-here>')
+        os.environ.setdefault('STRIPE_WH_SECRET_SUB', '<enviroment-variable-here>')
+    
+    -  To ensure appropriate security measures a `SECRET_KEY` can be randomly generated using [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/) or a similar website.
+
+-  `DEVELOPMENT` should be set to `1` and is entered into `settings.py` logic to ensure file is dynamic between local and remote setups
+    - `STRIPE_PUBLIC_KEY` and `STRIPE_SECRET_KEY` values are obatined from the [Stripe](https://dashboard.stripe.com/register) website
                 <details>
                         <summary>How to get Stripe API values</summary>
                         <ul>
-                            <li>Once logged in, you will be redirected to the **Overview** page, if not, navigate there by clicking **Overview** on the left hand side
+                            <li>Once logged in, you will be redirected to the **Overview** page
                             </li>
-                                <img src="./readme_docs/stripe-overview.png" height="200px">
-                            <li>Get the API values by clicking on **Get your test API keys** as shown in the image above</li>
+                            <li>Get the API values by clicking on **Get your test API keys**</li>
                             <li>Add Publishable key as `STRIPE_PUBLIC_KEY` and Secret key as `STRIPE_SECRET_KEY` environmental variable values</li>
                         </ul>
                 </details>
-    - `STRIPE_WH_SECRET` value is obtained from the [Stripe](https://stripe.com/en-ie) website in conjunction of using [ngrok](https://ngrok.com) to host the server
+    - `STRIPE_WH_SECRET` value is obtained from the [Stripe](https://dashboard.stripe.com/register) website in the developers area
                     <details>
                         <summary>Getting Webhooks API value</summary>
                         <ul>
-                            <li>Set up ngrok to generate a tunnel on your localhost port to use in Stripe webhooks later. Read on [ngrok](nhrok.com/downloads) website downloads page to learn how.</li>
                             <li>Go to your [stripe dashboard](dashboard.stripe.com) and naviagte to **Developers** > **Webhooks**
                             </li>
-                            <li>Click **Add endpoint** and enter your ngrok link followed by `/checkout/wh/` as shown in the image below</li>
-                                <img src="./readme_docs/stripe-endpoint.png" height="400px">
+                            <li>Click **Add endpoint** and enter your site address followed by `/checkout/wh/`</li>
                             <li>Click on **recieve all events** and then Add endpoint to finish the setup</li>
                             <li>To get the `STRIPE_WH_SECRET` value, click on the added link under Endpoints and copy the Signing secret key in your variable</li>
                         </ul>
                 </details>
-    - `ALLOWED_HOSTS` this should be set to your ngrok url
-1. Run the application
 
-        python3 manage.py runserver
-
-1. Website should be available on a link similar to `http://127.0.0.1:8000`. (check your IDE terminal)
-1. Note: `python3` and `pip3` commands can vary depending on version/machine/IDE you're using. Always check docs if unsure. -->
+1. Run the application using - *python3 manage.py runserver*
 
 ---
 
-<!-- ## **Credits** -->
+## **Credits**
 
-<!-- ### **Content** -->
+### **Content**
 
-<!-- *	My code was influenced by The Data Centric Development Mini Project lesson from the [Code Institute](https://courses.codeinstitute.net/login) Full Stack Developer Course. -->
+*	My code was influenced by The Data Centric Development Boutique Ado lessons from the [Code Institute](https://courses.codeinstitute.net/login) Full Stack Developer Course.
 
-<!-- ### **Media** -->
+*   My Wishlist app was influenced by the Code Institute Slack community - Particualrly a conversation between **ckz8780** and **Keis_almuni**
 
-<!-- *   All images used for the carousel, logo and default sandwich card were obtained from [Pixabay](https://pixabay.com/)
-    *   With special mention to:
-        *   [andreas160578](https://pixabay.com/users/andreas160578-2383079/)
-        *   [Christine_Sponchia](https://pixabay.com/users/sponchia-443272/)
-        *   [Clker](https://pixabay.com/users/clker-free-vector-images-3736/)
-        *   [LuckyLife11](https://pixabay.com/users/luckylife11-5245360/)
-        *   [tookapic](https://pixabay.com/users/tookapic-1386459/) -->
+### **Media**
 
+*   All images and large portions of the product descriptions used for the products 'sold' on this site were obtained from [The Sock Drawer](https://sockdrawer.com/)
 
-<!-- ### **Acknowledgements** -->
+*   The 'No Image' image was obtained from [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:No-image-available.png)
 
-<!-- *   I received advice for improving my search bar code from my Code Institute mentor **Oluwafemi Medale**
+*   The callout image of multiple pairs of socks was obtained from [CodeWoD](http://www.codewod.com/2014/02/real-life-sock-sorting.html)
 
-*   Additional help to create a default image on sandwich cards is credited to [StackOverflow](https://stackoverflow.com/questions/7995080/html-if-image-is-not-found)
+### **Acknowledgements**
 
-*	I received styling inspiration from:
-
-    *   [BBCGoodFood](https://www.bbcgoodfood.com/recipes/egg-less-mayo-sandwiches) 
     
-*   Additional Thanks to my mentor **Oluwafemi Medale** for styling and formatting advice. -->
+*   Thanks to my mentor **Oluwafemi Medale** for styling and formatting advice.
 
