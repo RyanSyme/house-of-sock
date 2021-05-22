@@ -88,11 +88,11 @@
                     <div class="row text-center pagination">
                         <div class="col-12">
                             {% if products.has_previous %}
-                            <a class="btn btn-back" href="?page={{ products.previous_page_number }}"><i
+                            <a class="btn btn-back" href="?category={{ category }}&page={{ products.next_page_number }}"><i
                                     class="fas fa-step-backward"></i> Prev</a>
                             {% endif %}
                             {% if products.has_next %}
-                            <a class="btn btn-back" href="?page={{ products.next_page_number }}">Next <i
+                            <a class="btn btn-back" href="?category={{ category }}&page={{ products.next_page_number }}">Next <i
                                     class="fas fa-step-forward"></i> </a>
                             {% endif %}
                         </div>
