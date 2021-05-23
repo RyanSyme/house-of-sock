@@ -57,11 +57,11 @@
                         <i class="fas fa-socks"></i> {{ product.category.friendly_name }}
                     </a></p>
                 {% endif %}
-                <!-- {% if product.rating %}
-                    <p>{{ product.rating|floatformat:"0" }}<i class="fas fa-star"></i></p>
-                    {% else %}
+                {% if product.rating %}
+                    <p>Rating: {{ product.rating|floatformat:1 }} <i class="fas fa-star"></i></p>
+                {% else %}
                     <p>Be first to rate this product</p>
-                    {% endif %} -->
+                {% endif %}
                 <p>{{ product.description }}</p>
                 <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
                     {% csrf_token %}

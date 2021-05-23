@@ -27,12 +27,20 @@ class Product(models.Model):
     description = models.TextField()
     size = models.BooleanField(default=True, null=True, blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    rating = models.DecimalField(
-        max_digits=6, decimal_places=2, null=True, blank=True)
+    # rating = models.DecimalField(
+    #     max_digits=6, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(
         max_length=1024, null=True, blank=True)
     image = models.ImageField(
         null=True, blank=True)
+
+    def rating(self):
+        total = sum(int(review['stars']) for review in self.reviews.values())
+
+        if self.reviews.count() > 0:
+            return total / self.reviews.count()
+        else:
+            return 0
 
     def __str__(self):
         return self.name
@@ -47,3 +55,4 @@ class Review(models.Model):
     stars = models.IntegerField()
     date_added = models.DateTimeField(auto_now_add=True)
 
+    

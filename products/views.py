@@ -38,20 +38,24 @@ def all_products(request):
     # Pagination
     paginator = Paginator(products, 12)
 
-    try:
-        page = int(request.GET.get('page', '1'))
-    except page:
-        page = 1
+    # try:
+    #     page = int(request.GET.get('page', '1'))
+    # except page:
+    #     page = 1
 
-    try:
-        products = paginator.page(page)
-    except(EmptyPage, InvalidPage):
-        products = paginator.page(paginator.num_pages)
+    # try:
+    #     products = paginator.page(page)
+    # except(EmptyPage, InvalidPage):
+    #     products = paginator.page(paginator.num_pages)
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
     context = {
         'products': products,
         'search_term': query,
         'current_categories': categories,
+        'page_obj': page_obj
     }
 
     return render(request, 'products/products.html', context)
