@@ -17,6 +17,8 @@ def all_products(request):
 
     query = None
     categories = None
+    # args = request.GET.items()
+    # print("args", args)
 
     if request.GET:
         if 'category' in request.GET:
@@ -37,16 +39,6 @@ def all_products(request):
 
     # Pagination
     paginator = Paginator(products, 12)
-
-    # try:
-    #     page = int(request.GET.get('page', '1'))
-    # except page:
-    #     page = 1
-
-    # try:
-    #     products = paginator.page(page)
-    # except(EmptyPage, InvalidPage):
-    #     products = paginator.page(paginator.num_pages)
 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
