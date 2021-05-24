@@ -5,13 +5,19 @@
 
 {% block content%}
     <div class="container text-center cart-container">
-        <h1 class="logo-font d-inline-block px-2 pb-2 my-5">Ooops</h1>
-        <p>It looks like there's a problem with the page you're trying to see.</p>
-        <p>We'll look into getting it fixed, in the meantime...</p>
-        <img src="{{ MEDIA_URL }}Image_by_ptra_from_Pixabay.jpg" alt="A lost sock" class="error-img">
-        <div class="my-5">
-            <p>You can return to buying cool socks right here</p>
-            <a href="{% url 'products' %}" class="btn btn-back">Buy something</a>
+        <div class="row">
+            <div class="col-12">
+                <h1 class="logo-font d-inline-block px-2 pb-2 my-5">Ooops!</h1>
+                <p>That's not right...</p>
+            </div>
+            <div class="col-8 offset-2 mt-3">
+                <p>It looks like there's a problem with the page you're trying to see.</p>
+                <p>We'll look into getting it fixed, in the meantime...</p>
+                <div class="my-5">
+                    <p>You can return to buying cool socks right here</p>
+                    <a href="{% url 'products' %}" class="btn btn-back">Buy something</a>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

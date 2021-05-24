@@ -12,33 +12,37 @@ When a user signs up a profile with all their past orders is created which they 
 
 ---
 
-<!-- ### **_Table of contents:_**
+### **_Table of contents:_**
 
 1. [Description](#house-of-sock)
 1. [UX](#ux)
     1. [Strategy Plane](#strategy-plane)
-    1. [Scope Plane]
+    1. [Scope Plane](#scope-plane)
     1. [Skeleton Plane](#skeleton-plane)
-    1. [Wireframes](#wireframes)
+        1. [Wireframes](#wireframes)
+        1. [Design Differences](#design-differences)
     1. [Surface Plane](#surface-plane)
         1. [Framework](#framework)
         1. [Fonts](#fonts)
+        1. [Colors](#colors)
     1. [User Stories](#user-stories)
 1. [Features](#features)
     1. [Existing Features](#existing-features)
     1. [Features Left to Implement](#features-left-to-implement)
-1. [Technology Used](#technology-used)
+1. [Information Technology](#information-technology)
+    1. [Structure](#structure)
+        1. [Data-Schema](#data-schema)
+    1. [Languages](#languages)
+    1. [Frameworks and Libraries](#frameworks-and-libraries)
+    1. [Software and Resources](#software-and-resources)
 1. [Testing](#testing)
-    1. [Testing User Stories](#testing-user-stories)
-    1. [Code Validation](#code-validation)
-    1. [Manual Testing](manual-testing)
 1. [Deployment](#deployment)
     1. [Remote Deployment](#remote-deployment)
     2. [Local Deployment](#local-deployment)
 1. [Credits](#credits)
     1. [Content](#content)
     2. [Media](#media)
-    3. [Acknowledgements](#acknowledgements) -->
+    3. [Acknowledgements](#acknowledgements)
 
 ---
 
@@ -51,7 +55,7 @@ The main target audience for House of Sock are:
 - Age 18 - 50 as the products are light hearted but not childish.
 - Users who love socks.
 - Users who like to show their humor in their clothing choices.
-- Users looking for a slightly unusal take on the 'socks for christmas/birthday' gifts for loved ones.
+- Users looking for a slightly unusual take on the 'socks for christmas/birthday' gifts for loved ones.
 
 The objective of this website is to provide users that love socks with an application that allows them to sign up, login, purchase or 'wishlist' their favorite socks and store their delivery information for a speed service on their return.
 
@@ -71,7 +75,7 @@ On this site a user is able to:
 - Leave a review (if signed in)
 - Leave a rating (if signed in)
 
-### Skeleton Plane
+### **Skeleton Plane**
 
 #### **Wireframes**
 <!-- ![Sitemap](static/readme-files/sitemap.png)
@@ -83,7 +87,6 @@ On this site a user is able to:
 ![Profile](static/readme-files/profile.png)
 ![Create-Sandwich](static/readme-files/createsandwich.png) -->
 
-<!-- you can find a full size PDF of the Wireframes [here](https://bea8e478-4bc6-44df-a287-ee1dbc1f65af.ws-eu03.gitpod.io/files/download/?id=6065fa6f-18e7-4c7c-97f5-54ef1e094bae)  -->
 
 <!-- #### **Design Differences** -->
 
@@ -141,6 +144,7 @@ The Google font Rock Salt had been used as the logo font and is used for most of
 
 * **Store Owner Goals**
     * *As a Store Owner*, I want to be able to add new products to the website.
+
     * *As a Store Owner*, I want to be able to update products on the website.
     * *As a Store Owner*, I want to be able to remove products from the website.
     * *As a Store Owner*, Be confident that other users cannot add, remove, or update the products on my website.
@@ -219,7 +223,9 @@ The Google font Rock Salt had been used as the logo font and is used for most of
 
 #### Wishlist
 
-*   
+*   Once a product is added to the wishlist its page can be viewed by either clicking the view button or clicking on the picture of the product
+*   Products can be removed from the wishlist by clicking the remove button below the product
+*   Clicking the keep socking button will return the user to the Products page
 
 #### Shopping Cart
 
@@ -363,7 +369,7 @@ bookmarks products to the wishlist
 Allauth User Model:
 Stores the users registration information. A default model installed from django.
 
-#### Relationship
+#### Data-Schema
 - The relationship between the models are displayed here
 
     <!-- make data-schema and post it here!!!! -->
@@ -505,6 +511,8 @@ All testing has been documented in [TESTING.md](TESTING.MD) file
 
 *   My Wishlist app was influenced by the Code Institute Slack community - Particualrly a conversation between **ckz8780** and **Keis_almuni**
 
+*   A fix for a bug in the pagination was found at [Stackoverflow](https://stackoverflow.com/a/30552369/12782401) by Code Institute mentor **Igor Basuga**
+
 ### **Media**
 
 *   All images and large portions of the product descriptions used for the products 'sold' on this site were obtained from [The Sock Drawer](https://sockdrawer.com/)
@@ -515,6 +523,7 @@ All testing has been documented in [TESTING.md](TESTING.MD) file
 
 ### **Acknowledgements**
 
+*   Thank to Code Institute Mentor **Igor Basuga** for going above and beyond to help fix my coding issues
     
 *   Thanks to my mentor **Oluwafemi Medale** for styling and formatting advice.
 
