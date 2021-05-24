@@ -4,7 +4,8 @@
 
 ---
 
-<!-- ![House of Sock](Multi shot here) -->
+![House of Sock](readme_docs/house_of_sock_multi_trans.png)
+
 The main goal of this project is the development of an e-commerce website using Django. It is a website dedicated to selling fun and unusal socks. It has been built with a fun but simple user expeierence
 as one of the central goals. The user can search the website for products they would like to purchase, they can add them to a wishlist to purchase at a later date or add them to the shopping cart. They can then checkout using the Stripe payment system.
 When a user signs up a profile with all their past orders is created which they can view at any time. The site is designed to be easy to navigate and lighthearted to provide a fulfilling user experience so happy customers are encouraged to return.
@@ -13,24 +14,28 @@ When a user signs up a profile with all their past orders is created which they 
 
 <!-- ### **_Table of contents:_**
 
-1. [Description](#sandwich-recipe-database)
-2. [UX](#ux)
-    1. [The Objective](#the-objective)
-    2. [Wireframes](#wireframes)
-    3. [Styling](#styling)
-    4. [User Stories](#user-stories)
-3. [Features](#features)
+1. [Description](#house-of-sock)
+1. [UX](#ux)
+    1. [Strategy Plane](#strategy-plane)
+    1. [Scope Plane]
+    1. [Skeleton Plane](#skeleton-plane)
+    1. [Wireframes](#wireframes)
+    1. [Surface Plane](#surface-plane)
+        1. [Framework](#framework)
+        1. [Fonts](#fonts)
+    1. [User Stories](#user-stories)
+1. [Features](#features)
     1. [Existing Features](#existing-features)
-    2. [Features Left to Implement](#features-left-to-implement)
-4. [Technology Used](#technology-used)
-5. [Testing](#testing)
+    1. [Features Left to Implement](#features-left-to-implement)
+1. [Technology Used](#technology-used)
+1. [Testing](#testing)
     1. [Testing User Stories](#testing-user-stories)
-    2. [Code Validation](#code-validation)
-    3. [Manual Testing](manual-testing)
-6. [Deployment](#deployment)
+    1. [Code Validation](#code-validation)
+    1. [Manual Testing](manual-testing)
+1. [Deployment](#deployment)
     1. [Remote Deployment](#remote-deployment)
     2. [Local Deployment](#local-deployment)
-7. [Credits](#credits)
+1. [Credits](#credits)
     1. [Content](#content)
     2. [Media](#media)
     3. [Acknowledgements](#acknowledgements) -->
@@ -244,12 +249,11 @@ The Google font Rock Salt had been used as the logo font and is used for most of
 *   User has the ability to delete products from the wishlist
 
 
-### **Features Left to Implement**
+### ** Future Features **
 
-<!-- * A 'like' or grading feature that allows user to rate other users sandwiches
+* A possilbe feature to implement at a later date could be a subscription service where the user would recieve discounts when signing up for the monthly email
 
-* Some defensive programing to ask a user if they are sure that they want to delete a sandwich or not once the delete button has been pressed
-    * This would also be needed for the admin page on the delete category button -->
+* Additional payment options, such as paypal
 
 ---
 
