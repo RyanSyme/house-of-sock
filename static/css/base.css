@@ -463,10 +463,6 @@ select option[value=""] {
         padding-right: 0px;
     }
 
-    /* .decrement-qty {
-        margin-left: 1.5rem;
-    } */
-
     .cart-remove {
         float: none !important;
     }
