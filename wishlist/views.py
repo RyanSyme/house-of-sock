@@ -38,7 +38,9 @@ def wishlist(request):
 
 @login_required
 def add_to_wishlist(request, product_id):
-    """ A view to add a item in the Wishlist """
+    """
+        A view to add a item in the Wishlist
+    """
     redirect_url = request.POST.get('redirect_url')
 
     user = get_object_or_404(UserProfile, user=request.user)

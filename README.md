@@ -370,9 +370,9 @@ Allauth User Model:
 Stores the users registration information. A default model installed from django.
 
 #### Data-Schema
-- The relationship between the models are displayed here
+- The relationship between the models are displayed here:
 
-    <!-- make data-schema and post it here!!!! -->
+    ![data-schema](readme_docs/data-schema.png)
 
 The following technologies were used to create this website:-
 
