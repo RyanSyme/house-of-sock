@@ -78,6 +78,35 @@ On this site a user is able to:
 ### **Skeleton Plane**
 
 #### **Wireframes**
+<details>
+    <summary>Sitemap</summary>
+
+![Sitemap](readme_docs/Site-map.png)
+</details>
+<details>
+    <summary>Desktop</summary>
+
+![Index](readme_docs/Index.png)
+![Sign Up](readme_docs/sign-up.png)
+![Login](readme_docs/login.png)
+![Products](readme_docs/products.png)
+![Product Detail](readme_docs/product_detail.png)
+![Shopping Cart](readme_docs/shopping-cart.png)
+![Checkout](readme_docs/checkout.png)
+
+</details>
+<details>
+    <summary>Mobile</summary>
+
+![Index](readme_docs/Mobile-index.png)
+![Products](readme_docs/mobile-products.png)
+![Product Detail](readme_docs/mobile_product_detail.png)
+![Shopping Cart](readme_docs/mobile-shopping_cart.png)
+![Checkout](readme_docs/mobile_checkout.png)
+</details>
+
+
+
 <!-- ![Sitemap](static/readme-files/sitemap.png)
 ![Index](static/readme-files/index.png)
 ![Sandwiches](static/readme-files/sandwiches.png)
@@ -108,15 +137,15 @@ As well as HTML and CSS. Bootstrap, Javascript and jQuery have all been used to 
 The Google font Noto Serif had been used as the main font thoughout the website
 The Google font Rock Salt had been used as the logo font and is used for most of the headers.
 
-<!-- #### *Colors* -->
-<!-- * There are four non-image colors used on the website: -->
+#### *Colors* -->
+* There are four non-image colors used on the website:
     
-    <!-- ![Colors](static/readme-files/colors.png)
-    *   #2b2d42 has been used for the main text and buttons
-    *   #9fd9de has been used for the Nav, Footer and containers
-    *   #ffffff has been used for the some text and boxes
-    *   #e6e6e6 has been used for the main background color
-    *   #993300 has been used for the blue hover response color -->
+    ![Colors](readme_docs/colors.png)
+    *   #300030 has been used for the main text
+    *   #fcf838 has been used for the Nav, Footer and containers
+    *   #700170 has been used for the main buttons, borders and some text
+    *   #ffffff has been used for the main background color
+    *   #aab7c4 has been used for the placeholder text color
 
 
 ### **User Stories**
@@ -417,31 +446,81 @@ All testing has been documented in [TESTING.md](TESTING.MD) file
 ---
 ## **Deployment**
 
-<!-- ### **Remote Deployment** -->
-<!-- 1. Navigate to the GitHub [Repository:](https://github.com/RyanSyme/url-of-sandwich) -->
-<!-- 2. Open [repository](https://github.com/RyanSyme/url-of-sandwich) using [GitPod](https://www.gitpod.io/) IDE. -->
-<!-- 3. In terminal run "pip3 freeze --local > requirements.txt" command to create a .txt file with all of the dependencies used that [Heroku](https://www.heroku.com) needs to know what dependencies app uses.
-4. In the terminal run the "echo web: python app.py > Procfile" command to create Procfile that [Heroku](https://www.heroku.com) needs to know what file runs the app.
-5. Go to [Heroku](https://www.heroku.com) and log in.
-6. Once logged in, and in your dashboard, click on "Create New App".
-7. Under "Create New App" click on the input field called "App Name".
-8. Give your app a unique name and select the closest region to your location.
-9. Click "Create App"
-10. In the "Deployment Method" section, connect the app by clicking on the "Github" icon.
-11. Type the Github repo-name in the "Connect to Github" section input.
-12. Click "search" to find the repo and once it is found click "connect".
-13. Before clicking the "Enable Automatic Deployment" button, click on the settings tab in the top part of the page.
-14. Click on "Reveal Config Var".
-15. Here you can inform Heroku of which variables will be required.
-16. The required variables are: (IP, PORT, MONGO_URI, MONGODB_NAME, SECRET_KEY).
-17. Go back to [GitPod](https://www.gitpod.io/) and make sure that you have pushed your requirements.txt and Procfile to the repo.
-18. Return to Heroku and click on "Enable Automatic Deployment".
-19. Select your branch. Branch selected (master).
-20. Click "Deploy Branch"
-21. Once deployment is finished click "View" to launch the new app. -->
+### **Remote Deployment**
 
+### Pre-requisites
+*   Set up a [Heroku](https://dashboard.heroku.com/apps) Account and app
+*   Create [AWS](https://aws.amazon.com/) account and upload static files used in the project
+
+### Steps
+1. In Heroku, navigate to **Resources** and search for **Heroku Postgres* Select 'Hobby Dev - Free' and click to Submit
+
+1. in the `settings.py` file, comment out 'SQLite and Postgres databases' and uncomment 'Postgres Database' section. Add your `DATABASE_URL` link obtained from the Heroku Config Vars
+
+        DATABASES = {
+            'default': dj_database_url.parse('url-goes-here')
+        }
+
+1. Migrate your models to Postgres SQL database
+
+        python3 manage.py migrate
+
+1. If you have a JSON file with products displayed on the site, import them now using the CLI in this order:
+
+        python3 manage.py loaddata categories
+        python3 manage.py loaddata products
+
+1. Create a superuser that will be used to access the admin page as well as to manage the database. Enter username, password, and e-mail as required
+
+        python3 manage.py createsuperuser
+
+1. In `settings.py` delete the 'Postgres SQL Database' section and un-comment 'SQLite and Postgres SQL Databases' section - this allows for interchangable use of either of the databases.
+
+1. Add the dependencies to the requirements.txt file
+
+        pip3 freeze --local > requirements.txt
+
+1. Create a Procfile that communicates to Heroku to create a web dyno and add the following line, replacing `app-name` with the name of your django project
+
+        web: gunicorn app-name.wsgi:application
+
+1. `Add`, `commit` and `push` your changes up to GitHub
+
+1. Go to Heroku and add all of the following environmental variables (Settings > Reveal Config Vars)
+
+    | Key | Value |
+    --- | ---
+    AWS_ACCESS_KEY_ID | `<your_aws_access__key>`
+    AWS_SECRET_ACCESS_KEY | `<your_aws_secret_access_key>`
+    DATABASE_URL | `generated automatically`
+    EMAIL_HOST_PASS | `<your_email_key>`
+    EMAIL_HOST_USER | `<your_email>`
+    SECRET_KEY | `<your_secret_key>`
+    STRIPE_PUBLIC_KEY | `<your_stripe_public_key>`
+    STRIPE_SECRET_KEY | `<your_stripe_secret_key>`
+    STRIPE_WH_SECRET_CH | `<your_stripe_webhook_key>`
+    STRIPE_WH_SECRET_SUB | `<your_stripe_webhook_key>`
+    USE_AWS | `True`
+    ALLOWED_HOSTS | `<your-heroku-app-url>`
+    
+1. In Heroku navigate to **Deploy** located in the tabs at the top of the page
+
+1. Click on **GitHub** and connect your GitHub account as well as your repo from GitHub by searching for the repo by name
+
+1. Click **Enable Automatic Deploys** followed by **Deploy Branch**
+
+1. Click **Open App**
+
+1. Once fully deployed you should see the `static/` folder with your static files in it in you S3 bucket.
+
+1. In your S3 bucket, add `media/` folder.
+
+1. If you did not previously use a JSON file for importing products and categories, now would be a good time to navigate to `your-url/admin/` page and import the Products and Categories
+
+1. Your app should be deployed.
 
 ### **Local Deployment**
+
 ### Pre-requisites
 - [Python 3](https://www.python.org/downloads/) - used to write the code and to run the project
 - [PIP](https://pypi.org/project/pip/) - used to install packages
