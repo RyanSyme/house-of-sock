@@ -20,7 +20,7 @@
 **First Time Visitor Goals**
 
 * *As a First Time Visitor*, I want to know immediately, the purpose of the website.
-    *   The name of the website already give a good idea to what the purpose of the website is but the callout section of the home screen has images of multiple socks and a banner just below the navbar advertises free delivery which also suggests that the site is selling goods
+    *   The name of the website already gives a good idea to what the purpose of the website is but the callout section of the home screen has images of multiple socks and a banner just below the navbar advertises free delivery which also suggests that the site is selling goods
 
 * *As a First Time Visitor*, I want to be able to navigate the website simply and easily.
     *   On opening the website the visitor is met with the callout section which has a button connecting to the sign up page and a sticky nav directing the user to relevant pages
@@ -124,7 +124,7 @@
     *   Email Address must have an @ symbol
     *   Email Address confirmation must be the same as the original email input
     *   User cannot create an account without entering a username with less than 4 characters
-    *   Password must pass allauth tests for security
+    *   Password must pass Allauth tests for security
         *   If any of these points fail a message appears informing the user what is needed
     *   The link switching the user from login to sign up above the form functions correctly
     *   The home button returns the user to the index page
@@ -142,7 +142,7 @@
 
 *   Test buttons and links:
     *   Once signed in the success toast tells the user that they are now signed in
-    *   The update info updates the users info as expected
+    *   The update info updates the user's info as expected
     *   The order history links take the user to the order confirmation screen listing the order as expected
     *   The back to profile button on the order confirmtion page returns the user to their profile as expected
 

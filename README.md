@@ -1,6 +1,6 @@
 # **House of Sock**
 
-## **Django E-Commerce Website For "Funky" Socks**
+## **Django E-Commerce Website for "Funky" Socks**
 
 ---
 
@@ -54,7 +54,7 @@ When a user signs up a profile with all their past orders is created which they 
 The main target audience for House of Sock are:
 - Age 18 - 50 as the products are light hearted but not childish.
 - Users who love socks.
-- Users who like to show their humor in their clothing choices.
+- Users who like to show their humour in their clothing choices.
 - Users looking for a slightly unusual take on the 'socks for christmas/birthday' gifts for loved ones.
 
 The objective of this website is to provide users that love socks with an application that allows them to sign up, login, purchase or 'wishlist' their favorite socks and store their delivery information for a speed service on their return.
@@ -184,7 +184,7 @@ The Google font Rock Salt had been used as the logo font and is used for most of
     6. The log out button logs the user out and returns them to the landing page.
     ![Log Out](readme_docs/logout_sc.png)
 
-    7. The Admin has an additional pages where they can add, edit or remove products from the database.
+    7. The Admin has an additional page where they can add, edit or remove products from the database.
     ![Management](readme_docs/management_sc.png)
 
 ### Features Across All Pages
@@ -227,7 +227,7 @@ The Google font Rock Salt had been used as the logo font and is used for most of
 #### Profile Page
 
 *   The profile page stores and shows the users delivery info which can be updated by the user
-*   The profile page show the users order history with a link to each individual order
+*   The profile page shows the users order history with a link to each individual order
 
 #### Wishlist
 
@@ -267,7 +267,7 @@ The Google font Rock Salt had been used as the logo font and is used for most of
 
 * A possilbe feature to implement at a later date could be a subscription service where the user would recieve discounts when signing up for the monthly email
 
-* Additional payment options, such as paypal
+* Additional payment options, such as PayPal
 
 ---
 
@@ -529,7 +529,7 @@ All testing has been documented in [TESTING.md](TESTING.MD) file
 
     *pip3 install -r requirements.txt*
 
-1. Create a`env.py` file for storing the enviromental variables
+1. Create an `env.py` file for storing the environmental variables
 
 1. Add environment variable in the format as shown below:
 
@@ -546,7 +546,7 @@ All testing has been documented in [TESTING.md](TESTING.MD) file
 -  `DEVELOPMENT` should be set to `1` and is entered into `settings.py` logic to ensure file is dynamic between local and remote setups
 - `STRIPE_PUBLIC_KEY` and `STRIPE_SECRET_KEY` values are obatined from the [Stripe](https://dashboard.stripe.com/register) website
         <details>
-            <summary>How to retreive Stripe API values</summary>
+            <summary>How to retrieve Stripe API values</summary>
             <ul>
                 <li>Once logged in, you will be redirected to the **Overview** page</li>
                 <li>Get the API values by clicking on **Get your test API keys**</li>
@@ -555,7 +555,7 @@ All testing has been documented in [TESTING.md](TESTING.MD) file
         </details>
 - `STRIPE_WH_SECRET` value is obtained from the [Stripe](https://dashboard.stripe.com/register) website in the developers area
         <details>
-            <summary>How to retreive Webhooks API value</summary>
+            <summary>How to retrieve Webhooks API value</summary>
             <ul>
                 <li>Go to your [stripe dashboard](dashboard.stripe.com) and naviagte to **Developers** > **Webhooks**</li>
                 <li>Click **Add endpoint** and enter your site address followed by `/checkout/wh/`</li>
