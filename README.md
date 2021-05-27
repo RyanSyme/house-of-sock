@@ -105,29 +105,6 @@ On this site a user is able to:
 ![Checkout](readme_docs/mobile_checkout.png)
 </details>
 
-
-
-<!-- ![Sitemap](static/readme-files/sitemap.png)
-![Index](static/readme-files/index.png)
-![Sandwiches](static/readme-files/sandwiches.png)
-![View-Sandwich](static/readme-files/view-sandwich.png)
-![Login](static/readme-files/login.png)
-![Sign-Up](static/readme-files/signup.png)
-![Profile](static/readme-files/profile.png)
-![Create-Sandwich](static/readme-files/createsandwich.png) -->
-
-
-<!-- #### **Design Differences** -->
-
-<!-- There are some minor differences from the original conception and the final website.
-
-* Originally I planned to have the Login and Sign up in the same place and have only one link in the Nav. I decided it would be cleaner to have a Login section and a sign up section.
-* I made the callout image a rolling carousel to make the home page more interesting and inviting.
-* I changed the search option from a "main ingredient" search to an "any ingredient" search for ease of use for the user.
-* I moved the sandwich description in the "view sandwich" page, from the side of the image to underneath, purely for aesthetical reasons.
-* I removed the "create a new sandwich" button from the profile page, as I felt it was an unnecessary addition.
-* I changed the database category from "main ingredient" to "category" for ease of use for the user (if a sandwich has only two ingredients, which is the main one?). -->
-
 ### **Surface Plane**
 
 #### *Framework*
@@ -184,29 +161,31 @@ The Google font Rock Salt had been used as the logo font and is used for most of
 * The Project is a multi-page website which uses a Django database and Python template management.
 
     1. The Index page consists of a Nav section and footer section that feature on every page. It also includes a callout image with a sign up button and a latest products section.
-    <!-- ![Top](static/readme-files/top.png)    
-    ![Carousel](static/readme-files/carousel.png)    
-    ![Latest](static/readme-files/latest.png)     -->
+    ![Nav](readme_docs/nav_sc.png)    
+    ![Callout](readme_docs/callout_sc.png)    
+    ![Latest](readme_docs/latest_sc.png)
+    ![Footer](readme_docs/footer_sc.png)
     
     2. The Products section displays the full database of socks that can be viewed and purchased. Each pair of socks has its own card showing an image of the socks, their name and price. Each card also has view button which allows the user to enter the product_detail page.
-    <!-- ![Sandwich Cards](static/readme-files/sandwichesscreen.png) -->
+    ![Products](readme_docs/products_sc.png)
     
     3. The Product Detail page allows the customer to see the socks with a larger image and has a fun description of the socks. Here the cuctomer can add the socks to their wishlist (if signed in), read any reviews of the sock that other customers have made, add their own review (if signed in) or add the socks to their shopping cart for purchasing.
-    <!-- ![Add Sandwich](static/readme-files/addsandwichscr.png) -->
+    ![Product Detail](readme_docs/product-detail_sc.png)
+    ![Review](readme_docs/review_sc.png)
     
     4. The Login and Register sections take the customer to the related page, allowing the customer to either login or sign up. The pages have links to each other in case the customer has click the wrong one.
-    <!-- ![Login](static/readme-files/loginscr.png)
-    ![Sign Up](static/readme-files/signupscr.png) -->
+    ![Login](readme_docs/sign-in_sc.png)
+    ![Sign Up](readme_docs/sign-up_sc.png)
     
     
     5. The profile section shows the user their delivery information and any historical purchases they have made.
-    <!-- ![Profile](static/readme-files/profilescr.png) -->
+    ![Profile](readme_docs/profile-img_sc.png)
     
     6. The log out button logs the user out and returns them to the landing page.
-    <!-- ![Log Out](static/readme-files/logout.png) -->
+    ![Log Out](readme_docs/logout_sc.png)
 
     7. The Admin has an additional pages where they can add, edit or remove products from the database.
-    <!-- ![Categories](static/readme-files/categories.png) -->
+    ![Management](readme_docs/management_sc.png)
 
 ### Features Across All Pages
 
@@ -300,7 +279,7 @@ A relational database was used to store the data. The developmental database use
 ### Structure
 The models created for this website are as follows:
 
-Order Model - Stores information on each order.
+**Order** Model - Stores information on each order.
 
 | Key | Model Type | Purpose |
 | ---- | ----- | --------------- |
@@ -319,8 +298,9 @@ Order Model - Stores information on each order.
 | grand_total | DecimalField | The grand_total of the order including delivery cost. |
 | original_cart | TextField | A copy of the users ordered products. |
 | stripe_pid | CharField | The users stripe payment intent id. |
+---
 
-OrderLineItem Model:
+**OrderLineItem** Model:
 Stores the products that the user has ordered and is attached to their order in the Order model.
 
 | Key | Model Type | Purpose |
@@ -330,17 +310,18 @@ Stores the products that the user has ordered and is attached to their order in 
 | product_size | CharField | The products size. |
 | quantity | IntegerField | The quantity of the product ordered. |
 | lineitem_total | DecimalField | The total of quantity * product price |
+---
 
-Category Model:
+**Category** Model:
 Stores information on which category the product belongs to.
 
 | Key | Model Type | Purpose |
 | ---- | ----- | --------------- |
 | name | CharField | The name of the product |
 | friendly_name | CharField | a simplifed name to make it user friendly. |
+---
 
-
-Product Model:
+**Product** Model:
 Stores information on products sold on the website.
 
 | Key | Model Type | Purpose |
@@ -356,8 +337,9 @@ Stores information on products sold on the website.
 | ---- | ----- | --------------- |
 | image | ImageField | This is an image of the product. Displayed as content. |
 | image_url | URLField | The image url for the product. Displayed as content. |
+---
 
-Review Model:
+**Review** Model:
 Stores information from user reviews
 
 | Key | Model Type | Purpose |
@@ -367,8 +349,9 @@ Stores information from user reviews
 | content | TextField | The content added by the user for the review. Displayed as content. |
 | stars | IntegerField | The rating this user is giving the product. Displayed as content. |
 | date_added | DateTimeField | The date and time the review was added. Displayed as content. |
+---
 
-UserProfile Model:
+**UserProfile** Model:
 A user profile model for maintaining delivery information and order history
 
 | Key | Model Type | Purpose |
@@ -379,23 +362,26 @@ A user profile model for maintaining delivery information and order history
 | default_postcode | CharField | The users postcode. For auto filling the checkout form on the users next checkout. |
 | default_town_or_city | CharField | The users town or city. For auto filling the checkout form on the users next checkout. |
 | default_country | CountryField | The users country. For auto filling the checkout form on the users next checkout. |
+---
 
-Wishlist Model:
+**Wishlist** Model:
 A model to link a user to bookmarked product
 
 | Key | Model Type | Purpose |
 | ---- | ----- | --------------- |
 | user | OneToOneField | A OneToOne Field that identifies the User that the wishlist belongs to. |
-    
-WishlistItem Model:
+---
+
+**WishlistItem** Model:
 bookmarks products to the wishlist
 
 | Key | Model Type | Purpose |
 | ---- | ----- | --------------- |
 | wishlist | ForeignKey | A Foreign Key that retrevieves the User that the wishlist belongs to. |
 | product | ForeignKey | Foreign key attached to the Product model. Identifies product being added to the wishlist. |
+---
 
-Allauth User Model:
+**Allauth User** Model:
 Stores the users registration information. A default model installed from django.
 
 #### Data-Schema
@@ -453,7 +439,7 @@ All testing has been documented in [TESTING.md](TESTING.MD) file
 *   Create [AWS](https://aws.amazon.com/) account and upload static files used in the project
 
 ### Steps
-1. In Heroku, navigate to **Resources** and search for **Heroku Postgres* Select 'Hobby Dev - Free' and click to Submit
+1. In Heroku, navigate to **Resources** and search for **Heroku Postgres** Select 'Hobby Dev - Free' and click to Submit
 
 1. in the `settings.py` file, comment out 'SQLite and Postgres databases' and uncomment 'Postgres Database' section. Add your `DATABASE_URL` link obtained from the Heroku Config Vars
 
@@ -490,18 +476,18 @@ All testing has been documented in [TESTING.md](TESTING.MD) file
 
     | Key | Value |
     --- | ---
-    AWS_ACCESS_KEY_ID | `<your_aws_access__key>`
-    AWS_SECRET_ACCESS_KEY | `<your_aws_secret_access_key>`
+    AWS_ACCESS_KEY_ID | `<aws_access__key>`
+    AWS_SECRET_ACCESS_KEY | `<aws_secret_access_key>`
     DATABASE_URL | `generated automatically`
-    EMAIL_HOST_PASS | `<your_email_key>`
-    EMAIL_HOST_USER | `<your_email>`
-    SECRET_KEY | `<your_secret_key>`
-    STRIPE_PUBLIC_KEY | `<your_stripe_public_key>`
-    STRIPE_SECRET_KEY | `<your_stripe_secret_key>`
-    STRIPE_WH_SECRET_CH | `<your_stripe_webhook_key>`
-    STRIPE_WH_SECRET_SUB | `<your_stripe_webhook_key>`
+    EMAIL_HOST_PASS | `<email_key>`
+    EMAIL_HOST_USER | `<email>`
+    SECRET_KEY | `<secret_key>`
+    STRIPE_PUBLIC_KEY | `<stripe_public_key>`
+    STRIPE_SECRET_KEY | `<stripe_secret_key>`
+    STRIPE_WH_SECRET_CH | `<stripe_webhook_key>`
+    STRIPE_WH_SECRET_SUB | `<stripe_webhook_key>`
     USE_AWS | `True`
-    ALLOWED_HOSTS | `<your-heroku-app-url>`
+    ALLOWED_HOSTS | `<heroku-app-url>`
     
 1. In Heroku navigate to **Deploy** located in the tabs at the top of the page
 
@@ -515,7 +501,7 @@ All testing has been documented in [TESTING.md](TESTING.MD) file
 
 1. In your S3 bucket, add `media/` folder.
 
-1. If you did not previously use a JSON file for importing products and categories, now would be a good time to navigate to `your-url/admin/` page and import the Products and Categories
+1. If you did not previously use a JSON file for importing products and categories, now would be a good time to navigate to `url-name/admin/` page and import the Products and Categories
 
 1. Your app should be deployed.
 
@@ -555,7 +541,7 @@ All testing has been documented in [TESTING.md](TESTING.MD) file
         os.environ.setdefault('STRIPE_WH_SECRET_CH', '<enviroment-variable-here>')
         os.environ.setdefault('STRIPE_WH_SECRET_SUB', '<enviroment-variable-here>')
     
-    -  To ensure appropriate security measures a `SECRET_KEY` can be randomly generated using [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/) or a similar website.
+    -  To ensure the appropriate level of security measures a `SECRET_KEY` can be randomly generated using [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/) or a similar website.
 
 -  `DEVELOPMENT` should be set to `1` and is entered into `settings.py` logic to ensure file is dynamic between local and remote setups
 - `STRIPE_PUBLIC_KEY` and `STRIPE_SECRET_KEY` values are obatined from the [Stripe](https://dashboard.stripe.com/register) website

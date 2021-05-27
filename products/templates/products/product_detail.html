@@ -56,11 +56,17 @@
                     <button class="btn btn-main btn-sm text-uppercase my-3">Add to wishlist</button>
                 </form>
                 {% endif %}
-                <h5 class="mt-2"><strong>€{{ product.price }}</strong></h5>
+                <div class="my-3">
+                    <h5><strong>€{{ product.price }}</strong></h5>
+                </div>
                 {% if product.rating %}
+                <div class="my-2">
                     <p>Rating: {{ product.rating|floatformat:1 }} <i class="fas fa-star"></i></p>
+                </div>
                 {% else %}
-                    <p>Be first to rate this product</p>
+                <div class="my-2">
+                    <small class="text-muted"><em>Be first to rate this product</em></small>
+                </div>
                 {% endif %}
                 <p>{{ product.description }}</p>
                 <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">

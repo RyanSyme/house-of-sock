@@ -1,31 +1,23 @@
-# Testing
+# **Testing**
 
 ## Table of Contents
 
-1. [User Stories](#user-stories)
+1. [Testing User Stories](#testing-user-stories)
 
-1. [Functionality](#functionality)
+1. [Code Validation](#Code-Validation)
 
 1. [Validators](#validators)
-    - [HTML5](#html5)
-    - [CSS](#css)
-    - [JavaScript](#javascript)
-    - [Python](#python)
 
-1. [Compatibility](#compatibility)
+1. [Manual Testing](#Manual-Testing)
 
-1. [Performance](#performance)
+1. [Functionality Testing](#Functionality-Testing)
 
-1. [Bugs](#bugs)
-    - [Identified Bugs](#identified-bugs)
-    - [Existing Bugs](#existing-bugs)
+1. [Issues Found](#Issues-Found)
 
-1. [Future Testing](#future-testing)
-
-
-### **Testing User Stories from the UX Section**
-
-<!-- **First Time Visitor Goals** -->
+---
+### **Testing User Stories**
+---
+**First Time Visitor Goals**
 
 * *As a First Time Visitor*, I want to know immediately, the purpose of the website.
     *   The name of the website already give a good idea to what the purpose of the website is but the callout section of the home screen has images of multiple socks and a banner just below the navbar advertises free delivery which also suggests that the site is selling goods
@@ -72,13 +64,13 @@
     *   All products can be updated via the admin section.
 
 * *As a Store Owner*, I want to be able to remove products from the website.
-    *   *   All products can be deleted from the database via the admin section.
+    *   All products can be deleted from the database via the admin section.
 
 * *As a Store Owner*, Be confident that other users cannot add, remove, or update the products on my website.
     *   The ability to add or remove data within the database is only accessable by admin users
-
+---
 ### **Code Validation**
-
+---
 #### *W3 Validators*
 
 *    The HTML was Validated at [W3C Markup Validation Service](https://validator.w3.org/). 
@@ -86,9 +78,9 @@
 *    The CSS was Validated at [W3C CSS Validation Service](http://jigsaw.w3.org/css-validator/).
 
 *   The Python was Validated at [pep8online](http://pep8online.com/)
-
+---
 ### **Manual Testing**
-
+---
 #### *Google Developer Tools*
 
    *    The websites design responsiveness has been tested on all device sizes using Google Developer Tools.
@@ -115,10 +107,10 @@
    *    Apple Mac OS
    *    Google Chrome OS
    *    IBM Warp
-
+---
 ### **Functionality Testing**
-
-#### Index page
+---
+#### *Index Page*
 
 *   Test all links and buttons on Index page:
     *   All Navbar buttons link to the page expected
@@ -126,7 +118,7 @@
     *   Buttons on the "latest products cards direct to expected products pages
     *   The "Register Here" button appears when not signed in and directs user to Sign Up page if user is signed in the button becomes "Get Socking" and directs to the products page as expected
 
-#### Sign Up page
+#### *Sign Up Page*
 
 *   Test Sign Up form:
     *   Email Address must have an @ symbol
@@ -137,7 +129,7 @@
     *   The link switching the user from login to sign up above the form functions correctly
     *   The home button returns the user to the index page
 
-#### Login page
+#### *Login Page*
 
 *   Test Login functionality:
     *   User must enter a correct username already on the system
@@ -146,7 +138,7 @@
     *   The link switching the user from login to sign up above the form functions correctly
     *   The home button returns the user to the index page
 
-#### Profile page
+#### *Profile Page*
 
 *   Test buttons and links:
     *   Once signed in the success toast tells the user that they are now signed in
@@ -154,7 +146,7 @@
     *   The order history links take the user to the order confirmation screen listing the order as expected
     *   The back to profile button on the order confirmtion page returns the user to their profile as expected
 
-#### Wishlist Page
+#### *Wishlist Page*
 
 *   Test Wishlist Functionality:
     *   The wishlist tells the user it is empty and directs them back to the product page if there is not any product in the wishlist
@@ -163,66 +155,96 @@
     *   The REMOVE button removes the product from the wishlist as expected
     *   The keep socking button returns the user to the products page as expected
 
-<!-- #### Products page -->
+#### *Products Page*
 
-<!-- *   Test Edit Sandwich Form:
-    *   All original content is placed on the form
-    *   Changes can be made to any input as long as the edit complies with the same rule-sets as before
-    *   Save changes button saves the new information and directs the customer to the sandwiches page
-    *   Cancel edit makes no changes and directs the user to the sandwiches page -->
+*   Test Search bar:
+    *   Using the searchbar returns any products that have the chosen word in the title or description of the product
+*   Test buttons and links:
+    *   Clicking either the anchor in the product image or the view button send the user to the product details page as expected
+*   Test Rating:
+    *   The average rating of any product that has been given a rating by users is displayed on the product card
+    *   Products without a rating display a muted message 'No Rating'
+*   Test Pagination:
+    *   Paging through the products works as expected
+    *   Pagination on categories works as expected - A note on this is in the [Issues Found](#issues-Found) section
+    *   The Next and Previous buttons appear or disapear depending on where the user is along the pagination as expect i.e- on page 1 only the next button is showing and at the end only the previous button is showing
 
-<!-- #### Product Detail page -->
+#### *Product Detail Page*
 
-<!-- *   Test Edit Sandwich Form:
-    *   All original content is placed on the form
-    *   Changes can be made to any input as long as the edit complies with the same rule-sets as before
-    *   Save changes button saves the new information and directs the customer to the sandwiches page
-    *   Cancel edit makes no changes and directs the user to the sandwiches page -->
+*   Test Size and Quantity:
+    *   Both Size and Qty dropdowns work as expected adding products to the cart, of different size and/or quantities when the add button is clicked
+    *   A success toast appears with each addition to the cart displaying the products in the cart
+*   Test buttons and Links:
+    *   The Keep Socking button returns the user to the products page as expected
+    *   The Category name has a link that sends the user to the products page of that particular category as expected
+    *   Add to Cart button adds products to the cart as expected
+*   Test Review Area:
+    *   If a user is signed in they see a text box where they can add a review
+    *   Added reviews appear on the reviews section as expected
+    *   Star Ratings are added with each review as expected
+    *   An average of the star ratings appears on the detail card when there are 1 or more reviews
+    *   If there are no reviews or ratings, A message informing the user of this shows instead of a rating on both the reviews section and the detail card
 
-<!-- #### Shopping Cart page -->
+#### *Shopping Cart Page*
 
-<!-- *   Test Edit Sandwich Form:
-    *   All original content is placed on the form
-    *   Changes can be made to any input as long as the edit complies with the same rule-sets as before
-    *   Save changes button saves the new information and directs the customer to the sandwiches page
-    *   Cancel edit makes no changes and directs the user to the sandwiches page -->
+*   Test Quantity Buttons:
+    *   Quantities of products in the cart are updated when the update button is clicked as expected
+*   Test Buttons and Links:
+    *   Items are completely removed from the cart when the remove button is clicked
+    *   The Keep Socking button returns the user to the products page as expected
+    *   The Checkout button sends the user to the checkout as expected
+*   Test FREE_DELIVERY_THRESHOLD:
+    *   When a user has products worth €30 or more, the Delivery cost is removed from their total as expected
+    *   If the cart contains less than €30 of good, A message informing the user of how much more they need to spend to recieve free delivery shows below the Grand Total
 
-<!-- #### Checkout page -->
+#### *Checkout Page*
 
-<!-- *   Test Edit Sandwich Form:
-    *   All original content is placed on the form
-    *   Changes can be made to any input as long as the edit complies with the same rule-sets as before
-    *   Save changes button saves the new information and directs the customer to the sandwiches page
-    *   Cancel edit makes no changes and directs the user to the sandwiches page -->
+*   Test Checkout Form:
+    *   If the user has details saved to the database, these are shown on the checkout form as expected
+*   Test Buttons and Links:
+    *   The adjust cart button returns the user to the shopping cart as expected
+    *   The checkout button activates a purchase if a genuine card number is used
+    *   Stripe and Allauth protections stop transactions if anything is incorrect as expected
 
-<!-- #### Checkout Success page -->
+#### *Checkout Success Page*
 
-<!-- *   Test Edit Sandwich Form:
-    *   All original content is placed on the form
-    *   Changes can be made to any input as long as the edit complies with the same rule-sets as before
-    *   Save changes button saves the new information and directs the customer to the sandwiches page
-    *   Cancel edit makes no changes and directs the user to the sandwiches page -->
+*   Test Transaction:
+    *   When a transaction is activated the user is taken to the Checkout Success Page
+    *   A success toast informs the user that the order is a success and that they have been sent an email 
+    *   The user receives the email as expected
+    *   The page displays the information from the transaction as expected
+*   Test Buttons and Links:
+    *   The Ready for more socks button sends the user to the products page as expected
 
-<!-- #### Logout Buttons -->
+#### *Logout Buttons*
 
-<!-- *   Test Logout Button:
-    *   Pressing the logout button logs out the user and returns them to the login page -->
+*   Test Logout Button:
+    *   Pressing the logout button logs out the user and returns them to the Index page
+---
+### **Admin Testing**
+---
+#### *Admin Functions*
 
-<!-- ### Admin Testing -->
-
-<!-- #### Admin Functions -->
-
-<!-- *   Test Admin Functions:
-    *   When signed in as admin, the profile page show an Edit Categories button
-    *   The Edit Categories button takes the admin to the Edit Categories page
+*   Test Admin Functions:
+    *   When signed in as admin, the product_details page shows an Edit button and a delete button
+    *   The Edit button takes the admin to the Edit Product page where they can edit:
+        *   The category
+        *   The SKU
+        *   The Name
+        *   The Description
+        *   Whether the product has different sizes
+        *   The Price
+        *   The Product Image
+    *   The delete button removes the product from the database as expected
+*   Test Buttons and Links:
+    *   The Select Image Button opens a window allowing the admin to select an image from their hard drive
+    *   The Cancel button returns the admin to the products page as expected
+    *   The Edit Product button makes any changes that the admin has entered as expected
 
     
-<!-- #### *Issues Found* -->
+#### **Issues Found**
 
-<!-- *   An issue was found with the carousel and callout text being on the same line on different device sizes, the resizing would make the text too large and the carousel too small.
-    *   The issue was resolved with some changes to the css in the media queries and by using the bootstrap grid system.
-
-*   Originally the minimum number of letters for the sandwich names was set at 5. It became apparent early on that this was an error as one of the worlds most famous sandwiches is a 3 letter Acronym "BLT"
-    *   The minimum letter count on the sandwich name input was changed to 3. -->
+*   An issue was found with Django Paginator - which was causing the paginator to function incorrectly when viewing the product by *category*. When moving from page 1 to page 2, the paginator would 'lose' the category from the search and show all of the product in the database instead of the expected products from that category.
+    *   This problem was finally fix by editing the python code in products.html using code found at [Stackoverflow](https://stackoverflow.com/a/30552369/12782401) by Code Institute mentor **Igor Basuga**
 
 ---
