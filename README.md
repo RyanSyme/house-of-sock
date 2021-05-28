@@ -29,7 +29,7 @@ When a user signs up a profile with all their past orders is created which they 
 1. [Features](#features)
     1. [Existing Features](#existing-features)
     1. [Features Left to Implement](#features-left-to-implement)
-1. [Information Technology](#information-technology)
+1. [Database Design](#database-design)
     1. [Structure](#structure)
         1. [Data-Schema](#data-schema)
     1. [Languages](#languages)
@@ -271,7 +271,7 @@ The Google font Rock Salt had been used as the logo font and is used for most of
 
 ---
 
-## **Information Architecture**
+## **Database Design**
 
 A relational database was used to store the data. The developmental database used was [SQLite](https://www.sqlite.org/index.html), and the deployed database used was
 [Heroku](https://www.heroku.com/postgres). The use of a relational database allowed me to connect data stored in separate models through the use of foreign keys and onetoone fields.
