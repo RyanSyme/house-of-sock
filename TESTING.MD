@@ -77,6 +77,8 @@
 
 *    The CSS was Validated at [W3C CSS Validation Service](http://jigsaw.w3.org/css-validator/).
 
+*    The JavaScript was Validated at [JSHint](https://jshint.com/).
+
 *   The Python was Validated at [pep8online](http://pep8online.com/)
 ---
 ### **Manual Testing**
