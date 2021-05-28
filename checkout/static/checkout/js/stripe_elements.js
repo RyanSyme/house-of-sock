@@ -106,5 +106,5 @@ form.addEventListener('submit', function(ev) {
     }).fail(function () {
         // reloads page on fail, shows error message
         location.reload();
-    })
+    });
 });
