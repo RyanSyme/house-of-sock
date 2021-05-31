@@ -380,15 +380,15 @@ select option[value=""] {
 
 /* --------------------------- Media Queries ---------------------- */
 
-/* Slightly larger container on xl screens */
-@media (min-width: 1450px) {
+/* Correct sizing issue on xxl screens */
+@media (min-width: 1500px) {
     .opaque-background {
         width: 300px;
         height: 500px !important;
     }
 
     .callout-header {
-        font-size: 5rem;
+        font-size: 4rem;
         padding-top: 5rem !important;
     }
 
