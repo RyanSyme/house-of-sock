@@ -380,7 +380,7 @@ select option[value=""] {
 
 /* --------------------------- Media Queries ---------------------- */
 
-/* Correct sizing issue on xxl screens */
+/* Resize index page on xxl screens */
 @media (min-width: 1610px) {
     .opaque-background {
         width: 300px;
