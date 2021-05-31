@@ -372,12 +372,6 @@ select option[value=""] {
     color: #fff;
 }
 
-/* --------------------------- Error Pages ---------------------- */
-
-.error-img {
-    max-width: 300px;
-}
-
 /* --------------------------- Media Queries ---------------------- */
 
 /* Resize index page on xxl screens */

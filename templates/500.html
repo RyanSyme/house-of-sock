@@ -4,18 +4,20 @@
 {% block extra_title %}500{% endblock %}
 
 {% block content%}
-    <div class="container text-center cart-container">
+    <div class="container text-center">
         <div class="row">
             <div class="col-12">
-                <h1 class="logo-font d-inline-block px-2 pb-2 my-5">Ooops!</h1>
-                <p>That's not right...</p>
+                <h1 class="logo-font display-4 px-2 py-2 mt-3">Ooops!</h1>
             </div>
-            <div class="col-8 offset-2 mt-3">
-                <p>It looks like there's a problem with the page you're trying to see.</p>
-                <p>We'll look into getting it fixed, in the meantime...</p>
+            <div class="col-6 offset-3">
+                <img class="img-fluid" src="{{ MEDIA_URL }}Image_by_ptra_from_Pixabay.jpg">
+            </div>
+            <div class="col-12">
+                <p class="m-1">It looks like there's a problem with the page you're trying to see.</p>
+                <p class="m-1">We'll look into getting it fixed, in the meantime...</p>
                 <div class="my-5">
                     <p>You can return to buying cool socks right here</p>
-                    <a href="{% url 'products' %}" class="btn btn-back">Buy something</a>
+                    <a href="{% url 'products' %}" class="btn btn-back">Keep Socking</a>
                 </div>
             </div>
         </div>
