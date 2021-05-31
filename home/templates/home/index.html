@@ -22,7 +22,7 @@
                             THIS HOUSE SOCKS!
                         </h1>
                     </div>
-                    <div class="callout-btn text-center my-5 py-4">
+                    <div class="callout-btn text-center my-4 py-3">
                         {% if request.user.is_authenticated %}
                         <a href="{% url 'products' %}" class="btn btn-callout py-3">Get Socking</a>
                         {% else %}
@@ -46,7 +46,7 @@
     </div>
     <div class="row px-5">
         {% for product in products_latest %}
-        <div class="col-sm-6 col-md-6 col-lg-3 px-0 py-2 d-flex d-xl-block p-xl-5 justify-content-center">
+        <div class="col-sm-6 col-md-6 col-lg-3 px-0 py-2 d-flex justify-content-center latest-card-container">
             <div class="card h-100 border-1 latest-card">
                 {% if product.image %}
                 <a href="{% url 'product_detail' product.id %}" class="product-image">

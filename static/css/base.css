@@ -381,6 +381,25 @@ select option[value=""] {
 /* --------------------------- Media Queries ---------------------- */
 
 /* Slightly larger container on xl screens */
+@media (min-width: 1450px) {
+    .opaque-background {
+        width: 300px;
+        height: 500px !important;
+    }
+
+    .callout-header {
+        font-size: 5rem;
+        padding-top: 5rem !important;
+    }
+
+    .latest-card-container {
+        display: block !important;
+    }
+
+    
+}
+
+/* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
     .container {
         max-width: 90%;
