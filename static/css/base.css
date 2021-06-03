@@ -213,11 +213,26 @@ input[name="q"]::placeholder {
 }
 
 .btn-update {
-    width: 10%;
+    /* width: 10%; */
 }
 
 .cart-qty {
-    width: 50%;
+    /* width: fit-content;
+    max-width: 50%; */
+    display: block;
+}
+
+.qty_input {
+    width: fit-content !important;
+    max-width: 50% !important;
+}
+
+.input-group-prepend {
+    padding-left: 10%;
+}
+
+.input-group-append {
+    padding-left: 10%;
 }
 
 /* --------------------------- Checkout and forms ------------------ */
@@ -470,9 +485,9 @@ select option[value=""] {
         font-size: small;
     }
 
-    .cart-qty {
+    /* .cart-qty {
         display: block;
-    }
+    } */
 
     .qty_input {
         min-width: 30px !important;
