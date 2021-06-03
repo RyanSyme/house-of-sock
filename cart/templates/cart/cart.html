@@ -25,15 +25,15 @@
     {% if cart_items %}
     <div class="container-fluid lg-screen-container">
         <div class="row d-flex justify-content-center">
-            <div class="col-4 col-md-2">Product Info</div>
+            <div class="col-4 col-md-2 pl-4">Product Info</div>
             <div class="col-2 d-none d-md-block"></div>
-            <div class="col-2 d-none d-md-block">Price</div>
+            <div class="col-2 d-none d-md-block pl-4">Price</div>
             <div class="col-2">Qty</div>
-            <div class="col-1">Subtotal</div>
+            <div class="col-1 pl-0">Subtotal</div>
             <div class="col-1"></div>
             {% for item in cart_items %}
             <div class="row d-flex justify-content-center">
-                <div class="col-4 col-md-2 p-3">
+                <div class="col-4 col-md-2 pl-0 py-3">
                     {% if item.product.image %}
                     <img class="img-fluid img-cart" src="{{ item.product.image.url }}" alt="{{ item.product.name }}" />
                     {% else %}
