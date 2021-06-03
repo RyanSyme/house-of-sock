@@ -212,28 +212,22 @@ input[name="q"]::placeholder {
     max-width: 80%;
 }
 
-.btn-update {
-    /* width: 10%; */
-}
-
-.cart-qty {
-    /* width: fit-content;
-    max-width: 50%; */
+/* .cart-qty {
     display: block;
-}
+} */
 
 .qty_input {
-    width: fit-content !important;
-    max-width: 50% !important;
+    /* width: fit-content !important; */
+    /* max-width: 50% !important; */
 }
 
-.input-group-prepend {
+/* .input-group-prepend {
     padding-left: 10%;
 }
 
 .input-group-append {
     padding-left: 10%;
-}
+} */
 
 /* --------------------------- Checkout and forms ------------------ */
 
