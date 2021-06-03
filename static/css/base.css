@@ -418,6 +418,10 @@ select option[value=""] {
         padding-top: 164px;
     }
 
+    .error-img {
+        max-width: 70%;
+    }
+
     .navbar-expand-lg {
         -ms-flex-flow: row nowrap;
         flex-flow: row nowrap;
