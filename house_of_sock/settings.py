@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['house-of-sock.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['house-of-sock.onrender.com', 'localhost']
 
 
 # Application definition
